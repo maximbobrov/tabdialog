@@ -25,7 +25,7 @@ QPushButton:hover {
 }
 
 QPushButton#editButton {
-    background-color: #008080;
+    background-color: #3333ff;
 }
 
 QPushButton#filterButton {
@@ -33,7 +33,13 @@ QPushButton#filterButton {
 }
 
 QPushButton#remButton {
-    background-color: #111111;
+    background-color: #ff3333;
+}
+QPushButton#menuButton {
+    background-color: #666666;
+}
+QPushButton#tabButton {
+    background-color: #999999;
 }
 QPushButton#addButton {
     background-color: #3CB371;

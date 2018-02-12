@@ -397,7 +397,7 @@ EditTablesPage::EditTablesPage(QWidget *parent,commonData *d)
 
     connect(my_database_model1, SIGNAL( dataChanged ( const QModelIndex &, const QModelIndex &) ), this, SLOT(update_data( const QModelIndex &, const QModelIndex &)));
     connect(my_database_model2, SIGNAL( dataChanged ( const QModelIndex &, const QModelIndex &) ), this, SLOT(update_data( const QModelIndex &, const QModelIndex &)));
-
+    connect(tabEdit, SIGNAL( currentChanged(int)) , this, SLOT(update_button( int)));
 
     tableView1=new QTableView(this);
     tableView1->setModel(my_database_model1);
@@ -517,14 +517,14 @@ EditTablesPage::EditTablesPage(QWidget *parent,commonData *d)
     data->uncheckallButton4= new myCoolButton(tr("Uncheck All"));;
 
     connect(data->filterButton1, SIGNAL(clicked()), this, SLOT(filter1()));
-    connect(data->addButton1, SIGNAL(clicked()), this, SLOT(open_win1()));
-    connect(data->editButton1, SIGNAL(clicked()), this, SLOT(open_win11()));
+   // connect(data->addButton1, SIGNAL(clicked()), this, SLOT(open_win1()));
+    //connect(data->editButton1, SIGNAL(clicked()), this, SLOT(open_win11()));
 
     connect(ui, SIGNAL(add()), this, SLOT(add_row1()));
     connect(ui, SIGNAL(edit()), this, SLOT(update_row1()));
 
    // connect(ui, SIGNAL(edit()), this, SLOT(update_row2()));
-    connect(data->remButton1, SIGNAL(clicked()), this, SLOT(remove_selected1()));
+   // connect(data->remButton1, SIGNAL(clicked()), this, SLOT(remove_selected1()));
     connect(data->checkallButton1, SIGNAL(clicked()), this, SLOT(check_headers1()));
     connect(data->uncheckallButton1, SIGNAL(clicked()), this, SLOT(uncheck_headers1()));
 
@@ -535,35 +535,35 @@ EditTablesPage::EditTablesPage(QWidget *parent,commonData *d)
     connect(data->uncheckallButton2, SIGNAL(clicked()), my_database_model2, SLOT(uncheck_headers()));*/
 
     connect(data->filterButton3, SIGNAL(clicked()), this, SLOT(filter3()));
-    connect(data->addButton3, SIGNAL(clicked()), this, SLOT(open_win3()));
-    connect(data->editButton3, SIGNAL(clicked()), this, SLOT(open_win33()));
+    //connect(data->addButton3, SIGNAL(clicked()), this, SLOT(open_win3()));
+    //connect(data->editButton3, SIGNAL(clicked()), this, SLOT(open_win33()));
     connect(ui1, SIGNAL(add()), this, SLOT(add_row3()));
     connect(ui1, SIGNAL(edit()), this, SLOT(update_row3()));
-    connect(data->remButton3, SIGNAL(clicked()),  this, SLOT(remove_selected3()));
+    //connect(data->remButton3, SIGNAL(clicked()),  this, SLOT(remove_selected3()));
     connect(data->checkallButton3, SIGNAL(clicked()), my_database_model3, SLOT(check_headers()));
     connect(data->uncheckallButton3, SIGNAL(clicked()), my_database_model3, SLOT(uncheck_headers()));
 
     connect(data->filterButton4, SIGNAL(clicked()), this, SLOT(filter4()));
-    connect(data->addButton4, SIGNAL(clicked()), this, SLOT(open_win4()));
-    connect(data->editButton4, SIGNAL(clicked()), this, SLOT(open_win44()));
+   // connect(data->addButton4, SIGNAL(clicked()), this, SLOT(open_win4()));
+    //connect(data->editButton4, SIGNAL(clicked()), this, SLOT(open_win44()));
     connect(ui2, SIGNAL(add()), this, SLOT(add_row4()));
     connect(ui2, SIGNAL(edit()), this, SLOT(update_row4()));
-    connect(data->remButton4, SIGNAL(clicked()),  this, SLOT(remove_selected4()));
+    //connect(data->remButton4, SIGNAL(clicked()),  this, SLOT(remove_selected4()));
     connect(data->checkallButton4, SIGNAL(clicked()), my_database_model4, SLOT(check_headers()));
     connect(data->uncheckallButton4, SIGNAL(clicked()), my_database_model4, SLOT(uncheck_headers()));
 
     QGridLayout *langLayout1 = new QGridLayout;
-    langLayout1->addWidget(data->tableLabel1,0,0);
+    /*langLayout1->addWidget(data->tableLabel1,0,0);
     langLayout1->addWidget(filterCombo1,0,1);
     langLayout1->addWidget(filterEdit1,0,2);
     langLayout1->addWidget(data->filterButton1,0,3); data->filterButton1->setObjectName("filterButton");
     langLayout1->addWidget(data->checkallButton1,0,4);data->checkallButton1->setObjectName("checkButton");
-    langLayout1->addWidget(data->uncheckallButton1,0,5);data->uncheckallButton1->setObjectName("uncheckButton");
+    langLayout1->addWidget(data->uncheckallButton1,0,5);data->uncheckallButton1->setObjectName("uncheckButton");*/
     //langLayout1->addStretch(20);
     //QSpacerItem
-    langLayout1->addWidget(data->addButton1,1,0);data->addButton1->setObjectName("addButton");
-    langLayout1->addWidget(data->editButton1,1,1);data->editButton1->setObjectName("editButton");
-    langLayout1->addWidget(data->remButton1,1,2);data->remButton1->setObjectName("remButton");
+    //langLayout1->addWidget(data->addButton1,1,0);data->addButton1->setObjectName("addButton");
+    //langLayout1->addWidget(data->editButton1,1,1);data->editButton1->setObjectName("editButton");
+    //langLayout1->addWidget(data->remButton1,1,2);data->remButton1->setObjectName("remButton");
     //langLayout1->addStretch(1);
 
     /*QHBoxLayout *langLayout2 = new QHBoxLayout;
@@ -582,35 +582,35 @@ EditTablesPage::EditTablesPage(QWidget *parent,commonData *d)
     langLayout2->addStretch(1);*/
 
     QGridLayout *langLayout3 = new QGridLayout;
-    langLayout3->addWidget(data->tableLabel3,0,0);
+    /*langLayout3->addWidget(data->tableLabel3,0,0);
 
     langLayout3->addWidget(filterCombo3,0,1);
     langLayout3->addWidget(filterEdit3,0,2);
     langLayout3->addWidget(data->filterButton3,0,3); data->filterButton3->setObjectName("filterButton");
     langLayout3->addWidget(data->checkallButton3,0,4);data->checkallButton3->setObjectName("checkButton");
-    langLayout3->addWidget(data->uncheckallButton3,0,5);data->uncheckallButton3->setObjectName("uncheckButton");
+    langLayout3->addWidget(data->uncheckallButton3,0,5);data->uncheckallButton3->setObjectName("uncheckButton");*/
 
    // langLayout3->addStretch(20);
     //QSpacerItem
-    langLayout3->addWidget(data->addButton3,1,0);data->addButton3->setObjectName("addButton");
+   // langLayout3->addWidget(data->addButton3,1,0);data->addButton3->setObjectName("addButton");
     //langLayout3->addWidget(data->editButton3);
-    langLayout3->addWidget(data->remButton3,1,1);data->remButton3->setObjectName("remButton");
+   // langLayout3->addWidget(data->remButton3,1,1);data->remButton3->setObjectName("remButton");
    // langLayout3->addStretch(1);
 
     QGridLayout *langLayout4 = new QGridLayout;
-    langLayout4->addWidget(data->tableLabel4,0,0);
+    /*langLayout4->addWidget(data->tableLabel4,0,0);
 
     langLayout4->addWidget(filterCombo4,0,1);
     langLayout4->addWidget(filterEdit4,0,2);
     langLayout4->addWidget(data->filterButton4,0,3); data->filterButton4->setObjectName("filterButton");
     langLayout4->addWidget(data->checkallButton4,0,4);data->checkallButton4->setObjectName("checkButton");
-    langLayout4->addWidget(data->uncheckallButton4,0,5);data->uncheckallButton4->setObjectName("uncheckButton");
+    langLayout4->addWidget(data->uncheckallButton4,0,5);data->uncheckallButton4->setObjectName("uncheckButton");*/
 
   //  langLayout4->addStretch(20);
     //QSpacerItem
-    langLayout4->addWidget(data->addButton4,1,0);data->addButton4->setObjectName("addButton");
-    langLayout4->addWidget(data->editButton4,1,1);data->editButton4->setObjectName("editButton");
-    langLayout4->addWidget(data->remButton4,1,2);data->remButton4->setObjectName("remButton");
+   // langLayout4->addWidget(data->addButton4,1,0);data->addButton4->setObjectName("addButton");
+    //langLayout4->addWidget(data->editButton4,1,1);data->editButton4->setObjectName("editButton");
+    //langLayout4->addWidget(data->remButton4,1,2);data->remButton4->setObjectName("remButton");
     //langLayout4->addStretch(1);
 
     QGridLayout *configLayout1 = new QGridLayout;

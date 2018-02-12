@@ -38,15 +38,32 @@ public:
     GenerateFormsPage * genpage ;
    EditTablesPage * tablepage;
     commonData * cData;
+    QPushButton *edittab;
+    QPushButton *genf;
+   /* QPushButton *tab1;
+    QPushButton *edit1;
+    QPushButton *rem1;
+    QPushButton *add1;
+    QPushButton *tab2;
+    QPushButton *edit2;
+    QPushButton *rem_area2;
+       QPushButton *rem_loc2;
+    QPushButton *add_area2;
+       QPushButton *add_loc2;*/
     SettingsTab(QWidget *parent = 0, commonData * Data=0);
 public slots:
     void changePage(QListWidgetItem *current, QListWidgetItem *previous);
+      void changePage1();
+      void changePage2();
+      void changeTab1();
+        void changeTab2();
 
 private:
     void createIcons();
 
     QListWidget *contentsWidget;
     QStackedWidget *pagesWidget;
+
 };
 
 class TabDialog : public QMainWindow

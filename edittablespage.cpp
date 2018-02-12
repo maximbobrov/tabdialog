@@ -15,7 +15,27 @@
 #include <QTableView>
 #include <QHeaderView>
 #include <QSqlQuery>
-
+void EditTablesPage::update_button( int a)
+{
+    if (a==0){
+    data->edit1->setVisible(true);
+     data->add1->setVisible(true);
+     data->rem1->setVisible(true);
+     data->edit2->setVisible(false);
+     data->rem_area2->setVisible(false);
+     data->rem_loc2->setVisible(false);
+     data->add_area2->setVisible(false);
+     data->add_loc2->setVisible(false);}
+        if (a==1){
+        data->edit1->setVisible(false);
+         data->add1->setVisible(false);
+         data->rem1->setVisible(false);
+         data->edit2->setVisible(true);
+         data->rem_area2->setVisible(true);
+         data->rem_loc2->setVisible(true);
+         data->add_area2->setVisible(true);
+         data->add_loc2->setVisible(true);}
+}
 void EditTablesPage::selecting1(QModelIndex a)
 {
 
@@ -622,6 +642,7 @@ void EditTablesPage::add_row3()
 
         my_database_model3->submitAll();
          tableView3->selectRow(rc);
+         data->selected_row3=rc;
 
     //  my_database_model->select();
 }
@@ -728,7 +749,13 @@ void EditTablesPage::sorting4(int ind)
 }
 void EditTablesPage::remove_selected3()
 {
+    QModelIndexList selection = tableView3->selectionModel()->selectedIndexes();
 
+    if(selection.count()!=0)
+    {
+        int l;
+
+        l=my_database_model3->data(my_database_model3->index(data->selected_row3,0)).toInt();
 
     for(int j=0;j<my_database_model4->rowCount();j++)
     {
@@ -753,26 +780,43 @@ my_database_model4->setFilter(QString(""));
     }
 
 
+
+
+    for(int j=my_database_model3->rowCount()-1;j>=0;j--)
+    {
+        if(my_database_model3->data(my_database_model3->index(j,0)).toInt()==l)
+        {
+
+     my_database_model3->removeRow(j);
+
+        }
+    }
     for(int j=0;j<my_database_model3->rowCount();j++)
     {
-        if(my_database_model3->data(my_database_model3->index(j,0))>my_database_model3->data(my_database_model3->index(data->selected_row3,0)))
+        if(my_database_model3->data(my_database_model3->index(j,0))>l)
         {
             int a;
             a= my_database_model3->data(my_database_model3->index(j,0)).toInt();
              my_database_model3->setData(my_database_model3->index(j,0), a-1);
         }
     }
-
-
-     my_database_model3->removeRow(data->selected_row3);
+     //my_database_model3->removeRow(data->selected_row3);
     my_database_model3->submitAll();
     my_database_model3->select();
     my_database_model4->submitAll();
     my_database_model4->select();
-
+}
 }
 void EditTablesPage::remove_selected4()
 {
+    QModelIndexList selection = tableView3->selectionModel()->selectedIndexes();
+
+    if(selection.count()!=0)
+    {
+    int k;
+    int l;
+    k=my_database_model4->data(my_database_model4->index(data->selected_row4,1)).toInt();
+    l=my_database_model4->data(my_database_model4->index(data->selected_row4,0)).toInt();
 my_database_model4->setFilter(QString(""));
     for(int j=0;j<my_database_model4->rowCount();j++)
     {
@@ -787,11 +831,22 @@ my_database_model4->setFilter(QString(""));
             }
         }
     }
-     my_database_model4->removeRow(data->selected_row4);
+
+    for(int j=0;j<my_database_model4->rowCount();j++)
+    {
+        if(my_database_model4->data(my_database_model4->index(j,0)).toInt()==l)
+        {
+            if(my_database_model4->data(my_database_model4->index(j,1)).toInt()==k)
+            {
+     my_database_model4->removeRow(j);
+            }
+        }
+    }
 
 
     my_database_model4->submitAll();
     my_database_model4->select();
+    }
 
 }
 void EditTablesPage::remove_row1()

@@ -76,6 +76,7 @@ public:
 
     EditTablesPage(QWidget *parent = 0,commonData *d=0);
 public slots:
+    void update_button(int a);
     void selecting1(QModelIndex a);
         void selecting2(QModelIndex a);
             void selecting3(QModelIndex a);

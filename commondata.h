@@ -20,7 +20,7 @@
 struct FORM
 {
     QString form_type;
-     QString loc_num;
+    QString loc_num;
     int int_loc_num;
     QString val_of_rec;
     QString qr_text;
@@ -32,7 +32,7 @@ class commonData : public QObject
 public:
     explicit commonData(QObject *parent = 0);
     void updateQRImage(QString text, int scypher, int index,int invert);
-      QString scypher(QString text);
+    QString scypher(QString text);
     QString to_base64(unsigned char * in,int buffsize);
     void draw_number(QPainter &painter, int x, int y, int d, int val);
     void draw_label(QPainter &painter, int x, int y, int h, int w, int fontsize, QString lbl);
@@ -52,6 +52,17 @@ public:
     int selected_row2;
     int selected_row3;
     int selected_row4;
+
+
+    myCoolButton *edit1;
+    myCoolButton *rem1;
+    myCoolButton *add1;
+
+    myCoolButton *edit2;
+    myCoolButton *rem_area2;
+    myCoolButton *rem_loc2;
+    myCoolButton *add_area2;
+    myCoolButton *add_loc2;
 
     QString que;
     int num_area;
@@ -75,12 +86,12 @@ public:
     QString aes256_key;
     CQR_Encode qrEncode;
     QImage eI;
-QComboBox *langCombo;
+    QComboBox *langCombo;
     QLineEdit *nameEdit;
-     QLineEdit *keyEdit;
+    QLineEdit *keyEdit;
     QLineEdit *LocNumEdit;
-     QLineEdit *ValOfRecEdit;
-     QLineEdit *PercentEdit;
+    QLineEdit *ValOfRecEdit;
+    QLineEdit *PercentEdit;
     QComboBox *FormTypeCombo;
 
     QLabel* num_form_label;
