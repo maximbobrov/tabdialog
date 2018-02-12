@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/gen.png</file>
+        <file>images/lang.png</file>
+        <file>images/lang_small.png</file>
+        <file>images/new.png</file>
+        <file>images/preview.png</file>
+        <file>images/table-edit-icon.png</file>
+        <file>images/lang_verysmall.png</file>
+    </qresource>
+</RCC>
