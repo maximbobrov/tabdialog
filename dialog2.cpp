@@ -20,8 +20,8 @@ Dialog2::Dialog2(QWidget *parent, commonData *d)
     users_l=new QLabel("Number of users");
 
      disk_l=new QLabel("Description");
-    add_new =new QPushButton("Add");
-    edit_new =new QPushButton("Edit");
+    add_new =new myCoolButton("Add");
+    edit_new =new myCoolButton("Edit");
 
     QGridLayout *packagesLayout = new QGridLayout;
 

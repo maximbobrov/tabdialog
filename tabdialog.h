@@ -6,11 +6,12 @@
 #include <QMainWindow>
 #include <QListWidget>
 #include <QStackedWidget>
-#include <QPushButton>
+
 #include <QLayout>
 #include <QGroupBox>
 #include "pages.h"
 #include "commondata.h"
+#include "mycoolbutton.h"
 QT_BEGIN_NAMESPACE
 class QDialogButtonBox;
 class QFileInfo;

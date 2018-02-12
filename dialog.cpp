@@ -14,8 +14,8 @@ Dialog::Dialog(QWidget *parent, commonData *d)
      que_l=new QLabel("Question");
     answer_l=new QLabel("Value of record");
      comm_answer_l=new QLabel("Description");
-    add_new =new QPushButton("Add");
-    edit_new =new QPushButton("Edit");
+    add_new =new myCoolButton("Add");
+    edit_new =new myCoolButton("Edit");
 
     QGridLayout *packagesLayout = new QGridLayout;
 

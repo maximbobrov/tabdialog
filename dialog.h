@@ -35,8 +35,8 @@ bool status;
    QLabel *que_l;
    QLabel *answer_l;
    QLabel *comm_answer_l;
-   QPushButton * add_new;
-   QPushButton * edit_new;
+   myCoolButton * add_new;
+   myCoolButton * edit_new;
 
 void my_show();
 

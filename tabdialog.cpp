@@ -155,7 +155,7 @@ void TabDialog::createMenus()
     //helpMenu->addAction(aboutQtAct);
 
 
-   // QPushButton* button= new QPushButton(this);
+   // myCoolButton* button= new myCoolButton(this);
 
    // button->setText("sssss");
 

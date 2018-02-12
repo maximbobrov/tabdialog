@@ -18,6 +18,7 @@
 #include <QTableView>
 #include <QHeaderView>
 #include <QSqlQuery>
+#include <QGraphicsEffect>
 GenerateFormsPage::GenerateFormsPage(QWidget *parent, commonData *d)
     : QWidget(parent)
 {
@@ -90,8 +91,21 @@ GenerateFormsPage::GenerateFormsPage(QWidget *parent, commonData *d)
     data->total_num_label->setMaximumHeight(20);
 
     //packagesLayout->addStretch(20);
-    data->genButton = new QPushButton(tr("Generate Forms"));
-    data->printButton = new QPushButton(tr("Print Forms"));
+    data->genButton = new myCoolButton(tr("Generate Forms"));
+
+    QWidget *vpcWidget = new QWidget();
+    //myCoolButton *pBtn = new myCoolButton();
+   // data->genButton->setParent(vpcWidget);
+    QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
+    effect->setBlurRadius(8); //Adjust accordingly
+    effect->setOffset(1,2); //Adjust accordingly
+
+    data->genButton->setGraphicsEffect(effect);
+   // vpcWidget->show();
+
+
+
+    data->printButton = new myCoolButton(tr("Print Forms"));
     state= new QLabel(" Progress: % ");
 
 
@@ -126,7 +140,7 @@ GenerateFormsPage::GenerateFormsPage(QWidget *parent, commonData *d)
 
     ///////////////////
     QGridLayout *prevTab1layout = new QGridLayout;
-    //QPushButton *updateButton = new QPushButton(tr("Update"));
+    //myCoolButton *updateButton = new myCoolButton(tr("Update"));
     QLabel* labelLoc=new QLabel("Location number:");
     QLabel* labelForm=new QLabel("Form Type:");
     data->comboloc = new QComboBox;
@@ -177,12 +191,12 @@ GenerateFormsPage::GenerateFormsPage(QWidget *parent, commonData *d)
     tab1->setLayout(prevTab1layout);
     //////////////////////////////
     QGridLayout *prevTab2layout = new QGridLayout;
-    QPushButton *update2Button = new QPushButton(tr("Update"));
+    myCoolButton *update2Button = new myCoolButton(tr("Update"));
 
-    QPushButton *prevButton = new QPushButton(tr("<<"));
-    QPushButton *nextButton = new QPushButton(tr(">>"));
-    QPushButton *first = new QPushButton(tr("|<"));
-    QPushButton *last = new QPushButton(tr(">|"));
+    myCoolButton *prevButton = new myCoolButton(tr("<<"));
+    myCoolButton *nextButton = new myCoolButton(tr(">>"));
+    myCoolButton *first = new myCoolButton(tr("|<"));
+    myCoolButton *last = new myCoolButton(tr(">|"));
     data->pagesspinbox = new QSpinBox;
     data->pagesspinbox->setPrefix(("page "));
     data->pagesspinbox->setSuffix((" of "));
@@ -475,32 +489,32 @@ EditTablesPage::EditTablesPage(QWidget *parent,commonData *d)
     filterEdit4 = new QLineEdit;
 
 
-    data->filterButton1 = new QPushButton(tr("Filter"));
-    data->addButton1 = new QPushButton(tr("Add new question"));
-    data->editButton1 = new QPushButton(tr("Edit"));
-    data->remButton1 = new QPushButton(tr("Remove Row"));
-     data->checkallButton1 = new QPushButton(tr("Check All"));
-     data->uncheckallButton1= new QPushButton(tr("Uncheck All"));;
+    data->filterButton1 = new myCoolButton(tr("Filter"));
+    data->addButton1 = new myCoolButton(tr("Add new question"));
+    data->editButton1 = new myCoolButton(tr("Edit"));
+    data->remButton1 = new myCoolButton(tr("Remove Row"));
+     data->checkallButton1 = new myCoolButton(tr("Check All"));
+     data->uncheckallButton1= new myCoolButton(tr("Uncheck All"));;
 
-    data->filterButton2 = new QPushButton(tr("Filter"));
-    data->addButton2 = new QPushButton(tr("Insert Empty Row"));
-    data->remButton2 = new QPushButton(tr("Remove Row"));
-    data->checkallButton2 = new QPushButton(tr("Check All"));
-    data->uncheckallButton2= new QPushButton(tr("Uncheck All"));;
+    data->filterButton2 = new myCoolButton(tr("Filter"));
+    data->addButton2 = new myCoolButton(tr("Insert Empty Row"));
+    data->remButton2 = new myCoolButton(tr("Remove Row"));
+    data->checkallButton2 = new myCoolButton(tr("Check All"));
+    data->uncheckallButton2= new myCoolButton(tr("Uncheck All"));;
 
-    data->filterButton3 = new QPushButton(tr("Filter"));
-    data->addButton3 = new QPushButton(tr("Add new area"));
-    data->editButton3 = new QPushButton(tr("Edit area"));
-    data->remButton3 = new QPushButton(tr("Remove Row"));
-    data->checkallButton3 = new QPushButton(tr("Check All"));
-    data->uncheckallButton3= new QPushButton(tr("Uncheck All"));;
+    data->filterButton3 = new myCoolButton(tr("Filter"));
+    data->addButton3 = new myCoolButton(tr("Add new area"));
+    data->editButton3 = new myCoolButton(tr("Edit area"));
+    data->remButton3 = new myCoolButton(tr("Remove Row"));
+    data->checkallButton3 = new myCoolButton(tr("Check All"));
+    data->uncheckallButton3= new myCoolButton(tr("Uncheck All"));;
 
-    data->filterButton4 = new QPushButton(tr("Filter"));
-    data->addButton4 = new QPushButton(tr("Add new location"));
-    data->editButton4 = new QPushButton(tr("Edit location"));
-    data->remButton4 = new QPushButton(tr("Remove Row"));
-    data->checkallButton4 = new QPushButton(tr("Check All"));
-    data->uncheckallButton4= new QPushButton(tr("Uncheck All"));;
+    data->filterButton4 = new myCoolButton(tr("Filter"));
+    data->addButton4 = new myCoolButton(tr("Add new location"));
+    data->editButton4 = new myCoolButton(tr("Edit location"));
+    data->remButton4 = new myCoolButton(tr("Remove Row"));
+    data->checkallButton4 = new myCoolButton(tr("Check All"));
+    data->uncheckallButton4= new myCoolButton(tr("Uncheck All"));;
 
     connect(data->filterButton1, SIGNAL(clicked()), this, SLOT(filter1()));
     connect(data->addButton1, SIGNAL(clicked()), this, SLOT(open_win1()));
@@ -538,19 +552,19 @@ EditTablesPage::EditTablesPage(QWidget *parent,commonData *d)
     connect(data->checkallButton4, SIGNAL(clicked()), my_database_model4, SLOT(check_headers()));
     connect(data->uncheckallButton4, SIGNAL(clicked()), my_database_model4, SLOT(uncheck_headers()));
 
-    QHBoxLayout *langLayout1 = new QHBoxLayout;
-    langLayout1->addWidget(data->tableLabel1);
-    langLayout1->addWidget(filterCombo1);
-    langLayout1->addWidget(filterEdit1);
-    langLayout1->addWidget(data->filterButton1);
-    langLayout1->addWidget(data->checkallButton1);
-    langLayout1->addWidget(data->uncheckallButton1);
-    langLayout1->addStretch(20);
+    QGridLayout *langLayout1 = new QGridLayout;
+    langLayout1->addWidget(data->tableLabel1,0,0);
+    langLayout1->addWidget(filterCombo1,0,1);
+    langLayout1->addWidget(filterEdit1,0,2);
+    langLayout1->addWidget(data->filterButton1,0,3); data->filterButton1->setObjectName("filterButton");
+    langLayout1->addWidget(data->checkallButton1,0,4);data->checkallButton1->setObjectName("checkButton");
+    langLayout1->addWidget(data->uncheckallButton1,0,5);data->uncheckallButton1->setObjectName("uncheckButton");
+    //langLayout1->addStretch(20);
     //QSpacerItem
-    langLayout1->addWidget(data->addButton1);
-    langLayout1->addWidget(data->editButton1);
-    langLayout1->addWidget(data->remButton1);
-    langLayout1->addStretch(1);
+    langLayout1->addWidget(data->addButton1,1,0);data->addButton1->setObjectName("addButton");
+    langLayout1->addWidget(data->editButton1,1,1);data->editButton1->setObjectName("editButton");
+    langLayout1->addWidget(data->remButton1,1,2);data->remButton1->setObjectName("remButton");
+    //langLayout1->addStretch(1);
 
     /*QHBoxLayout *langLayout2 = new QHBoxLayout;
     langLayout2->addWidget(data->tableLabel2);
@@ -567,37 +581,37 @@ EditTablesPage::EditTablesPage(QWidget *parent,commonData *d)
     langLayout2->addWidget(data->remButton2);
     langLayout2->addStretch(1);*/
 
-    QHBoxLayout *langLayout3 = new QHBoxLayout;
-    langLayout3->addWidget(data->tableLabel3);
+    QGridLayout *langLayout3 = new QGridLayout;
+    langLayout3->addWidget(data->tableLabel3,0,0);
 
-    langLayout3->addWidget(filterCombo3);
-    langLayout3->addWidget(filterEdit3);
-    langLayout3->addWidget(data->filterButton3);
-    langLayout3->addWidget(data->checkallButton3);
-    langLayout3->addWidget(data->uncheckallButton3);
+    langLayout3->addWidget(filterCombo3,0,1);
+    langLayout3->addWidget(filterEdit3,0,2);
+    langLayout3->addWidget(data->filterButton3,0,3); data->filterButton3->setObjectName("filterButton");
+    langLayout3->addWidget(data->checkallButton3,0,4);data->checkallButton3->setObjectName("checkButton");
+    langLayout3->addWidget(data->uncheckallButton3,0,5);data->uncheckallButton3->setObjectName("uncheckButton");
 
-    langLayout3->addStretch(20);
+   // langLayout3->addStretch(20);
     //QSpacerItem
-    langLayout3->addWidget(data->addButton3);
+    langLayout3->addWidget(data->addButton3,1,0);data->addButton3->setObjectName("addButton");
     //langLayout3->addWidget(data->editButton3);
-    langLayout3->addWidget(data->remButton3);
-    langLayout3->addStretch(1);
+    langLayout3->addWidget(data->remButton3,1,1);data->remButton3->setObjectName("remButton");
+   // langLayout3->addStretch(1);
 
-    QHBoxLayout *langLayout4 = new QHBoxLayout;
-    langLayout4->addWidget(data->tableLabel4);
+    QGridLayout *langLayout4 = new QGridLayout;
+    langLayout4->addWidget(data->tableLabel4,0,0);
 
-    langLayout4->addWidget(filterCombo4);
-    langLayout4->addWidget(filterEdit4);
-    langLayout4->addWidget(data->filterButton4);
-    langLayout4->addWidget(data->checkallButton4);
-    langLayout4->addWidget(data->uncheckallButton4);
+    langLayout4->addWidget(filterCombo4,0,1);
+    langLayout4->addWidget(filterEdit4,0,2);
+    langLayout4->addWidget(data->filterButton4,0,3); data->filterButton4->setObjectName("filterButton");
+    langLayout4->addWidget(data->checkallButton4,0,4);data->checkallButton4->setObjectName("checkButton");
+    langLayout4->addWidget(data->uncheckallButton4,0,5);data->uncheckallButton4->setObjectName("uncheckButton");
 
-    langLayout4->addStretch(20);
+  //  langLayout4->addStretch(20);
     //QSpacerItem
-    langLayout4->addWidget(data->addButton4);
-    langLayout4->addWidget(data->editButton4);
-    langLayout4->addWidget(data->remButton4);
-    langLayout4->addStretch(1);
+    langLayout4->addWidget(data->addButton4,1,0);data->addButton4->setObjectName("addButton");
+    langLayout4->addWidget(data->editButton4,1,1);data->editButton4->setObjectName("editButton");
+    langLayout4->addWidget(data->remButton4,1,2);data->remButton4->setObjectName("remButton");
+    //langLayout4->addStretch(1);
 
     QGridLayout *configLayout1 = new QGridLayout;
     configLayout1->addLayout(langLayout1, 0, 0);
@@ -648,9 +662,9 @@ PrintAndPreviewPage::PrintAndPreviewPage(QWidget *parent,commonData *d)
 
     // viewer = new myPixmapLabel(this);
 
-    //data->openButton = new QPushButton(tr("Open"));
+    //data->openButton = new myCoolButton(tr("Open"));
 
-    // data->nextButton = new QPushButton(tr("Next"));
+    // data->nextButton = new myCoolButton(tr("Next"));
 
     //connect(data->openButton, SIGNAL(clicked()), this, SLOT(push_open()));
     // connect(data->nextButton, SIGNAL(clicked()), this, SLOT(push_next()));
@@ -703,7 +717,7 @@ PrintAndPreviewPage::PrintAndPreviewPage(QWidget *parent,commonData *d)
     hitsSpinBox->setMaximum(100);
     hitsSpinBox->setSingleStep(10);
 
-    QPushButton *startQueryButton = new QPushButton(tr("Start query"));
+    myCoolButton *startQueryButton = new myCoolButton(tr("Start query"));
 
     QGridLayout *packagesLayout = new QGridLayout;
     packagesLayout->addWidget(nameLabel, 0, 0);

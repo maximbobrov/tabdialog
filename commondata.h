@@ -9,12 +9,13 @@
 #include <QSqlDatabase>
 #include <QLabel>
 #include <QGroupBox>
-#include <QPushButton>
+
 #include <QLineEdit>
 #include <QComboBox>
 #include <QSpinBox>
 #include <QTextEdit>
 #include <QCheckBox>
+#include "mycoolbutton.h"
 
 struct FORM
 {
@@ -107,8 +108,8 @@ QComboBox *langCombo;
     QLabel *ValOfRecLabel ;//= new QLabel(tr("Value Of record:"));
 
     QLabel *FormTypeLabel;// = new QLabel(tr("Form Type:"));
-    QPushButton *genButton;// = new QPushButton(tr("Generate Forms"));
-    QPushButton *printButton;// = new QPushButton(tr("Print Forms"));
+    myCoolButton *genButton;// = new myCoolButton(tr("Generate Forms"));
+    myCoolButton *printButton;// = new myCoolButton(tr("Print Forms"));
     //
     QGroupBox *langGroup;//= new QGroupBox(tr("UI Language"));
     QLabel *langLabel; //new QLabel(tr("Set:"));
@@ -120,38 +121,38 @@ QComboBox *langCombo;
     QLabel *tableLabel3;
     QLabel *tableLabel4;
 
-    QPushButton *filterButton1;// = new QPushButton(tr("Filter"));
-    QPushButton *addButton1;
+    myCoolButton *filterButton1;// = new myCoolButton(tr("Filter"));
+    myCoolButton *addButton1;
     bool status;
-    QPushButton *editButton1;// = new QPushButton(tr("Insert Empty Row"));
-    QPushButton *remButton1;
-    QPushButton *checkallButton1;// = new QPushButton(tr("Remove Row"));
-    QPushButton *uncheckallButton1;
+    myCoolButton *editButton1;// = new myCoolButton(tr("Insert Empty Row"));
+    myCoolButton *remButton1;
+    myCoolButton *checkallButton1;// = new myCoolButton(tr("Remove Row"));
+    myCoolButton *uncheckallButton1;
     //
-    QPushButton *filterButton2;// = new QPushButton(tr("Filter"));
-    QPushButton *addButton2;// = new QPushButton(tr("Insert Empty Row"));
-    QPushButton *remButton2;// = new QPushButton(tr("Remove Row"));
-    QPushButton *checkallButton2;// = new QPushButton(tr("Remove Row"));
-    QPushButton *uncheckallButton2;
+    myCoolButton *filterButton2;// = new myCoolButton(tr("Filter"));
+    myCoolButton *addButton2;// = new myCoolButton(tr("Insert Empty Row"));
+    myCoolButton *remButton2;// = new myCoolButton(tr("Remove Row"));
+    myCoolButton *checkallButton2;// = new myCoolButton(tr("Remove Row"));
+    myCoolButton *uncheckallButton2;
     //
-    QPushButton *editButton3;
-    QPushButton *filterButton3;// = new QPushButton(tr("Filter"));
-    QPushButton *addButton3;// = new QPushButton(tr("Insert Empty Row"));
-    QPushButton *remButton3;// = new QPushButton(tr("Remove Row"));
-    QPushButton *checkallButton3;// = new QPushButton(tr("Remove Row"));
-    QPushButton *uncheckallButton3;
+    myCoolButton *editButton3;
+    myCoolButton *filterButton3;// = new myCoolButton(tr("Filter"));
+    myCoolButton *addButton3;// = new myCoolButton(tr("Insert Empty Row"));
+    myCoolButton *remButton3;// = new myCoolButton(tr("Remove Row"));
+    myCoolButton *checkallButton3;// = new myCoolButton(tr("Remove Row"));
+    myCoolButton *uncheckallButton3;
     //
-    QPushButton *editButton4;
-    QPushButton *filterButton4;// = new QPushButton(tr("Filter"));
-    QPushButton *addButton4;// = new QPushButton(tr("Insert Empty Row"));
-    QPushButton *remButton4;// = new QPushButton(tr("Remove Row"));
-    QPushButton *checkallButton4;// = new QPushButton(tr("Remove Row"));
-    QPushButton *uncheckallButton4;
+    myCoolButton *editButton4;
+    myCoolButton *filterButton4;// = new myCoolButton(tr("Filter"));
+    myCoolButton *addButton4;// = new myCoolButton(tr("Insert Empty Row"));
+    myCoolButton *remButton4;// = new myCoolButton(tr("Remove Row"));
+    myCoolButton *checkallButton4;// = new myCoolButton(tr("Remove Row"));
+    myCoolButton *uncheckallButton4;
     //
     QGroupBox *printGroup;// = new QGroupBox(tr("Preview:"));
-    QPushButton *openButton;// = new QPushButton(tr("Open"));
+    myCoolButton *openButton;// = new myCoolButton(tr("Open"));
 
-    QPushButton *nextButton;// = new QPushButton(tr("Next"));
+    myCoolButton *nextButton;// = new myCoolButton(tr("Next"));
     QTextEdit* qrtext;
 
     QCheckBox * check_form_type;

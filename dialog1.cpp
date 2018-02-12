@@ -12,8 +12,8 @@ Dialog1::Dialog1(QWidget *parent, commonData *d)
     area=new QLineEdit("Question1");
     num_area_l=new QLabel("Number of area");
     area_l=new QLabel("Area");
-    add_new =new QPushButton("Add");
-    edit_new =new QPushButton("Edit");
+    add_new =new myCoolButton("Add");
+    edit_new =new myCoolButton("Edit");
     QGridLayout *packagesLayout = new QGridLayout;
 
     packagesLayout->addWidget(num_area_l, 0, 0,1,1);

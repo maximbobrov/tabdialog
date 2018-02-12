@@ -37,8 +37,8 @@ bool status;
    QLabel *users_l;
    QLabel *disk_l;
    //QLabel *comm_answer_l;
-   QPushButton * add_new;
-   QPushButton * edit_new;
+   myCoolButton * add_new;
+   myCoolButton * edit_new;
    //QComboBox *com;
 
 void my_show();

@@ -17,8 +17,9 @@ HEADERS       = tabdialog.h \
     mytranslatable.h \
     mysqltablemodel.h \
     dialog.h \
+    dialog1.h \
     dialog2.h \
-    dialog1.h
+    mycoolbutton.h
 SOURCES       = main.cpp \
                 tabdialog.cpp \
     pages.cpp \
@@ -32,16 +33,17 @@ SOURCES       = main.cpp \
     mytranslatable.cpp \
     mysqltablemodel.cpp \
     dialog.cpp \
+    dialog1.cpp \
     dialog2.cpp \
-    dialog1.cpp
+    mycoolbutton.cpp
 
 
 RESOURCES += \
-    resource.qrc
+    tabdialog.qrc
 
 LIBS         +=  -lpoppler-qt5
 TRANSLATIONS += QtLanguage_ru.ts
 
 VERSION = 1.0.0.1
 
-FORMS +=
+DISTFILES +=

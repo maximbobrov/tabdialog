@@ -31,8 +31,8 @@ bool status;
   QLabel *num_area_l;
    QLabel *area_l;
 
-   QPushButton * add_new;
-   QPushButton * edit_new;
+   myCoolButton * add_new;
+   myCoolButton * edit_new;
 
 void my_show();
 
