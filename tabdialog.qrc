@@ -9,5 +9,8 @@
         <file>images/gen.png</file>
         <file>images/lang_verysmall.png</file>
         <file>qss/default.qss</file>
+        <file>images/edit_white.png</file>
+        <file>images/plus_white.png</file>
+        <file>images/blank.png</file>
     </qresource>
 </RCC>

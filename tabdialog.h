@@ -38,8 +38,8 @@ public:
     GenerateFormsPage * genpage ;
    EditTablesPage * tablepage;
     commonData * cData;
-    QPushButton *edittab;
-    QPushButton *genf;
+    myCoolButton *edittab;
+    myCoolButton *genf;
    /* QPushButton *tab1;
     QPushButton *edit1;
     QPushButton *rem1;

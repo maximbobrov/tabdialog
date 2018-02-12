@@ -232,10 +232,12 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
     contentsWidget->setCurrentRow(0);
 
     //  connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
-    edittab= new QPushButton(tr("Edit Database"));edittab->setObjectName("menuButton");
-    edittab->setIcon(QIcon(":/images/table-edit-icon.png"));
-    genf= new QPushButton(tr("Generate Forms"));genf->setObjectName("menuButton");
-    genf->setIcon(QIcon(":/images/gen.png"));
+    edittab= new myCoolButton(tr("Edit Database │ ▼"));edittab->setObjectName("menuButton");
+    edittab->setIcon(QIcon(":/images/gen.png"));
+    edittab->activate();
+    genf= new myCoolButton(tr("Generate Forms │ ►"));genf->setObjectName("menuButton");
+    genf->setIcon(QIcon(":/images/table-edit-icon.png"));
+    genf->deactivate();
     QSize a;
     a.setHeight(40);
     a.setWidth(40);
@@ -322,6 +324,8 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
     connect(cData->rem_loc2, SIGNAL(clicked()),  tablepage, SLOT(remove_selected4()));
 
 
+   //  edittab->setText(tr("Edit Database │ ▼"));
+
 
 }
 
@@ -398,6 +402,9 @@ void SettingsTab::changePage1()
     pagesWidget->setCurrentIndex(0);
     //tab1->setVisible(true);
     //tab2->setVisible(true);
+
+    if (cData->edit1->isVisible()==false)
+    {
     cData->edit1->setVisible(true);
    cData->add1->setVisible(true);
     cData->rem1->setVisible(true);
@@ -407,12 +414,31 @@ void SettingsTab::changePage1()
     cData->add_area2->setVisible(false);
     cData->add_loc2->setVisible(false);
 
+    edittab->setText(tr("Edit Database │ ▼"));
+
+
+    }else
+    {
+        cData->edit1->setVisible(false);
+       cData->add1->setVisible(false);
+        cData->rem1->setVisible(false);
+
+        //edittab->deactivate();
+        edittab->setText(tr("Edit Database │ ►"));
+    }
+    edittab->activate();
+    genf->deactivate();
+
 
 }
 void SettingsTab::changePage2()
 {
 
+
     pagesWidget->setCurrentIndex(1);
+    genf->activate();
+ edittab->setText(tr("Edit Database │ ►"));
+    edittab->deactivate();
     //tab1->setVisible(false);
     //tab2->setVisible(false);
     cData->edit1->setVisible(false);
