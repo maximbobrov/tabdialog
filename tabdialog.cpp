@@ -109,7 +109,7 @@ TabDialog::TabDialog(QWidget *parent)
     // horizontalLayout->addWidget(cData->langCombo);
 
     horizontalLayout->addWidget(exit);
-    horizontalLayout->addStretch(0);
+    //horizontalLayout->addStretch(0);
     widget->setLayout(verticalLayout);
     verticalLayout->addWidget(widgetup);
     verticalLayout->addWidget(settingstab);
@@ -257,12 +257,13 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
     contentsWidget->setCurrentRow(0);
 
     //  connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
-    edittab= new myCoolButton(tr("Edit Database │ ▼"));edittab->setObjectName("addButton");
+    edittab= new myCoolButton(tr("Edit Database │ ▼"));edittab->setObjectName("remButton");
     edittab->setIcon(QIcon(":/images/gen.png"));
+    edittab->setFixedWidth(180);
     edittab->activate();
-    genf= new myCoolButton(tr("Generate Forms"));genf->setObjectName("addButton");
+    genf= new myCoolButton(tr("Generate Forms"));genf->setObjectName("remButton");
     genf->setIcon(QIcon(":/images/table-edit-icon.png"));
-
+    genf->setFixedWidth(180);
     genf->deactivate();
     file=new myCoolButton(tr("File │ ►"));file->setObjectName("menuButton");
     loadForm=new myCoolButton(tr("Load Forms"));loadForm->setObjectName("addButton");
@@ -272,19 +273,28 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
     ActLog=new myCoolButton(tr("Act log"));ActLog->setObjectName("addButton");
     AudLog=new myCoolButton(tr("Aud log"));AudLog->setObjectName("addButton");
     Settings=new myCoolButton(tr("Settings │ ►"));Settings->setObjectName("menuButton");
+    file->setFixedWidth(180);
+    loadForm->setFixedWidth(180);
+    formList->setFixedWidth(180);
+    genReports->setFixedWidth(180);
+    Logs->setFixedWidth(180);
+    ActLog->setFixedWidth(180);
+    AudLog->setFixedWidth(180);
+    Settings->setFixedWidth(180);
     QSize a;
     a.setHeight(40);
     a.setWidth(40);
     edittab->setIconSize(a);
     genf->setIconSize(a);
 
-    cData->tab1= new myCoolButton("Form type and answer");cData->tab1->setObjectName("tabButton");
+    cData->tab1= new myCoolButton("Form type and answer");cData->tab1->setObjectName("addButton");
 
     cData->edit1= new myCoolButton("Edit"); cData->edit1->setObjectName("editButton");
+    cData->tab1->setFixedWidth(180);
     cData->add1= new myCoolButton("Add new"); cData->add1->setObjectName("addButton");
     cData->rem1= new myCoolButton("Remove"); cData->rem1->setObjectName("remButton");
-    cData->tab2= new myCoolButton("Location and area"); cData->tab2->setObjectName("tabButton");
-
+    cData->tab2= new myCoolButton("Location and area"); cData->tab2->setObjectName("addButton");
+    cData->tab2->setFixedWidth(180);
     cData->edit2= new myCoolButton("Edit"); cData->edit2->setObjectName("editButton");
     cData->rem_area2= new myCoolButton("Eemove area"); cData->rem_area2->setObjectName("remButton");
     cData->rem_loc2= new myCoolButton("Remove location"); cData->rem_loc2->setObjectName("remButton");
@@ -335,6 +345,13 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
     horizontalLayout->addWidget(cData->rem_loc2);
     horizontalLayout->addWidget(cData->genf);
     horizontalLayout->addWidget(cData->printforms);
+    //horizontalLayout->addWidget(cData->tableLabel1);
+    horizontalLayout->addWidget(cData->filterCombo1);
+    horizontalLayout->addWidget(cData->filterEdit1);
+    horizontalLayout->addWidget(cData->filterButton1);
+    horizontalLayout->addWidget(cData->filterCombo4);
+    horizontalLayout->addWidget(cData->filterEdit4);
+    horizontalLayout->addWidget(cData->filterButton4);//data->filterButton1->setObjectName("filterButton");
 
     loadForm->setVisible(false);
     formList->setVisible(false);
@@ -354,14 +371,21 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
     cData->add_loc2->setVisible(false);
     cData->genf->setVisible(false);
     cData->printforms->setVisible(false);
+    cData->filterCombo1->setVisible(false);
+    cData->filterEdit1->setVisible(false);
+    cData->filterButton1->setVisible(false);
+    cData->filterCombo4->setVisible(false);
+    cData->filterEdit4->setVisible(false);
+    cData->filterButton4->setVisible(false);
+
 
     verticalLayout->addStretch();
     widUp->setLayout(horizontalLayout);
     widUp->setStyleSheet("background-color: lightskyblue");
     widUp->setMaximumHeight(50);
     gridLayout->addLayout(verticalLayout,0,0,10,1);
-    gridLayout->addWidget(widUp,0,2,1,40);
-    gridLayout->addWidget(pagesWidget,1,1,10,42);
+    gridLayout->addWidget(widUp,0,2,1,50);
+    gridLayout->addWidget(pagesWidget,1,1,10,52);
     //gridLayout->setSpacing(1);
 
     //horizontalLayout->addLayout(verticalLayout);
@@ -409,6 +433,8 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
     connect(cData->add_loc2, SIGNAL(clicked()), tablepage, SLOT(open_win4()));
     connect(cData->edit2, SIGNAL(clicked()), tablepage, SLOT(open_win44()));
     connect(cData->rem_loc2, SIGNAL(clicked()),  tablepage, SLOT(remove_selected4()));
+    connect(cData->genf, SIGNAL(clicked()),genpage , SLOT(gen_forms()));
+    connect(cData->printforms, SIGNAL(clicked()), genpage, SLOT(print_forms()));
 
 
     //  edittab->setText(tr("Edit Database │ ▼"));
@@ -503,6 +529,12 @@ void SettingsTab::changePage1()
         cData->rem_loc2->setVisible(false);
         cData->add_area2->setVisible(false);
         cData->add_loc2->setVisible(false);
+        cData->filterCombo1->setVisible(true);
+        cData->filterEdit1->setVisible(true);
+        cData->filterButton1->setVisible(true);
+        cData->filterCombo4->setVisible(false);
+        cData->filterEdit4->setVisible(false);
+        cData->filterButton4->setVisible(false);
 
         edittab->setText(tr("Edit Database │ ▼"));
 
@@ -560,6 +592,12 @@ void SettingsTab::changeTab1()
     cData->add_loc2->setVisible(false);
     cData->genf->setVisible(false);
     cData->printforms->setVisible(false);
+    cData->filterCombo1->setVisible(true);
+    cData->filterEdit1->setVisible(true);
+    cData->filterButton1->setVisible(true);
+    cData->filterCombo4->setVisible(false);
+    cData->filterEdit4->setVisible(false);
+    cData->filterButton4->setVisible(false);
 
 
 }
@@ -579,6 +617,12 @@ void SettingsTab::changeTab2()
     cData->add_loc2->setVisible(true);
     cData->genf->setVisible(false);
     cData->printforms->setVisible(false);
+    cData->filterCombo1->setVisible(false);
+    cData->filterEdit1->setVisible(false);
+    cData->filterButton1->setVisible(false);
+    cData->filterCombo4->setVisible(true);
+    cData->filterEdit4->setVisible(true);
+    cData->filterButton4->setVisible(true);
 
 }
 void SettingsTab::file_set()
@@ -674,6 +718,12 @@ void SettingsTab::setInvisible()
     cData->add_loc2->setVisible(false);
     cData->genf->setVisible(false);
     cData->printforms->setVisible(false);
+    cData->filterCombo1->setVisible(false);
+    cData->filterEdit1->setVisible(false);
+    cData->filterButton1->setVisible(false);
+    cData->filterCombo4->setVisible(false);
+    cData->filterEdit4->setVisible(false);
+    cData->filterButton4->setVisible(false);
     edittab->setText("Edit Database │ ►");
 
     file->setText("File │ ►");
@@ -712,6 +762,12 @@ void SettingsTab::setInvisible1()
     cData->add_loc2->setVisible(false);
     cData->genf->setVisible(false);
     cData->printforms->setVisible(false);
+    cData->filterCombo1->setVisible(false);
+    cData->filterEdit1->setVisible(false);
+    cData->filterButton1->setVisible(false);
+    cData->filterCombo4->setVisible(false);
+    cData->filterEdit4->setVisible(false);
+    cData->filterButton4->setVisible(false);
     edittab->setText("Edit Database │ ►");
 
     file->setText("File │ ►");

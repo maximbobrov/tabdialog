@@ -109,15 +109,14 @@ GenerateFormsPage::GenerateFormsPage(QWidget *parent, commonData *d)
     state= new QLabel(" Progress: % ");
 
 
-    connect(data->genButton, SIGNAL(clicked()), this, SLOT(gen_forms()));
-    connect(data->printButton, SIGNAL(clicked()), this, SLOT(print_forms()));
 
-    packagesLayout->addWidget(data->genButton,8,0,1,2);
-    packagesLayout->addWidget(state,9,0,1,2);
 
-    packagesLayout->addWidget(data->printButton,10,0,1,2);
+    //packagesLayout->addWidget(data->genButton,8,0,1,2);
+    packagesLayout->addWidget(state,8,0,1,2);
 
-    packagesLayout->setRowStretch(11, 1);
+   // packagesLayout->addWidget(data->printButton,10,0,1,2);
+
+    packagesLayout->setRowStretch(9, 1);
 
 
 
@@ -465,35 +464,35 @@ data->tableStack = new QStackedWidget;
     //connect(tableCombo, SIGNAL(currentIndexChanged( QString)), this, SLOT(change_table(QString)));
 
     data->tableLabel1 = new QLabel(tr("Query:"));
-    filterCombo1 = new QComboBox;
+    data->filterCombo1 = new QComboBox;
     data->tableLabel2 = new QLabel(tr("Query:"));
-    filterCombo2 = new QComboBox;
+    data->filterCombo2 = new QComboBox;
     data->tableLabel3 = new QLabel(tr("Query:"));
-    filterCombo3 = new QComboBox;
+    data->filterCombo3 = new QComboBox;
     data->tableLabel4 = new QLabel(tr("Query:"));
-    filterCombo4 = new QComboBox;
+    data->filterCombo4 = new QComboBox;
 
     qDebug()<<"col count "<<my_database_model1->columnCount()<<endl;
     for (int i=0;i<my_database_model1->columnCount();i++)
-        filterCombo1->addItem(my_database_model1->headerData(i, Qt::Horizontal).toString());
+        data->filterCombo1->addItem(my_database_model1->headerData(i, Qt::Horizontal).toString());
 
     qDebug()<<"col count "<<my_database_model2->columnCount()<<endl;
     for (int i=0;i<my_database_model2->columnCount();i++)
-        filterCombo2->addItem(my_database_model2->headerData(i, Qt::Horizontal).toString());
+        data->filterCombo2->addItem(my_database_model2->headerData(i, Qt::Horizontal).toString());
 
     qDebug()<<"col count "<<my_database_model3->columnCount()<<endl;
     for (int i=0;i<my_database_model3->columnCount();i++)
-        filterCombo3->addItem(my_database_model3->headerData(i, Qt::Horizontal).toString());
+        data->filterCombo3->addItem(my_database_model3->headerData(i, Qt::Horizontal).toString());
 
     qDebug()<<"col count "<<my_database_model4->columnCount()<<endl;
     for (int i=0;i<my_database_model4->columnCount();i++)
-        filterCombo4->addItem(my_database_model4->headerData(i, Qt::Horizontal).toString());
+        data->filterCombo4->addItem(my_database_model4->headerData(i, Qt::Horizontal).toString());
 
 
-    filterEdit1= new QLineEdit;
-    filterEdit2 = new QLineEdit;
-    filterEdit3 = new QLineEdit;
-    filterEdit4 = new QLineEdit;
+    data->filterEdit1= new QLineEdit;
+    data->filterEdit2 = new QLineEdit;
+    data->filterEdit3 = new QLineEdit;
+    data->filterEdit4 = new QLineEdit;
 
 
     data->filterButton1 = new myCoolButton(tr("Filter"));

@@ -150,14 +150,14 @@ private:
 
     QTableView  * tableView3;
     QTableView  * tableView4;
-    QComboBox *filterCombo1;
-    QComboBox *filterCombo2;
-    QComboBox *filterCombo3;
-    QComboBox *filterCombo4;
-    QLineEdit *filterEdit1;
-    QLineEdit *filterEdit2;
-    QLineEdit *filterEdit3;
-    QLineEdit *filterEdit4;
+    //QComboBox *filterCombo1;
+   // QComboBox *filterCombo2;
+    //QComboBox *filterCombo3;
+    //QComboBox *filterCombo4;
+   // QLineEdit *filterEdit1;
+    //QLineEdit *filterEdit2;
+    //QLineEdit *filterEdit3;
+    //QLineEdit *filterEdit4;
 
 };
 

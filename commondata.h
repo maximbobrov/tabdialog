@@ -54,7 +54,14 @@ public:
     int selected_row3;
     int selected_row4;
 
-
+    QComboBox *filterCombo1;
+    QComboBox *filterCombo2;
+    QComboBox *filterCombo3;
+    QComboBox *filterCombo4;
+    QLineEdit *filterEdit1;
+    QLineEdit *filterEdit2;
+    QLineEdit *filterEdit3;
+    QLineEdit *filterEdit4;
     myCoolButton *edit1;
     myCoolButton *rem1;
     myCoolButton *add1;

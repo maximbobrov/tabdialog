@@ -80,7 +80,7 @@ void EditTablesPage::selecting3(QModelIndex a)
 
     tableView3->selectRow(a.row());
     data->selected_row3=a.row();
-    QString query=QString(" %1 = \'%2\'").arg(filterCombo4->currentText()).arg(my_database_model3->data(my_database_model3->index(a.row(),0)).toInt());
+    QString query=QString(" %1 = \'%2\'").arg(data->filterCombo4->currentText()).arg(my_database_model3->data(my_database_model3->index(a.row(),0)).toInt());
     qDebug()<<query<<endl;
     my_database_model4->setFilter(query);
     int c=0;
@@ -122,10 +122,10 @@ void EditTablesPage::selecting4(QModelIndex a)
 }
 void EditTablesPage::filter1()
 {
-    if (filterEdit1->text().length()>0)
+    if (data->filterEdit1->text().length()>0)
     {
 
-        QString query=QString(" %1 = \'%2\'").arg(filterCombo1->currentText()).arg(filterEdit1->text());
+        QString query=QString(" %1 = \'%2\'").arg(data->filterCombo1->currentText()).arg(data->filterEdit1->text());
         qDebug()<<query<<endl;
         my_database_model1->setFilter(query);
     }else
@@ -138,10 +138,10 @@ void EditTablesPage::filter1()
 }
 void EditTablesPage::filter2()
 {
-    if (filterEdit2->text().length()>0)
+    if (data->filterEdit2->text().length()>0)
     {
 
-        QString query=QString(" %1 = \'%2\'").arg(filterCombo2->currentText()).arg(filterEdit2->text());
+        QString query=QString(" %1 = \'%2\'").arg(data->filterCombo2->currentText()).arg(data->filterEdit2->text());
         qDebug()<<query<<endl;
         my_database_model2->setFilter(query);
     }else
@@ -155,10 +155,10 @@ void EditTablesPage::filter2()
 
 void EditTablesPage::filter3()
 {
-    if (filterEdit3->text().length()>0)
+    if (data->filterEdit3->text().length()>0)
     {
 
-        QString query=QString(" %1 = \'%2\'").arg(filterCombo3->currentText()).arg(filterEdit3->text());
+        QString query=QString(" %1 = \'%2\'").arg(data->filterCombo3->currentText()).arg(data->filterEdit3->text());
         qDebug()<<query<<endl;
         my_database_model3->setFilter(query);
     }else
@@ -171,10 +171,10 @@ void EditTablesPage::filter3()
 }
 void EditTablesPage::filter4()
 {
-    if (filterEdit4->text().length()>0)
+    if (data->filterEdit4->text().length()>0)
     {
 
-        QString query=QString(" %1 = \'%2\'").arg(filterCombo4->currentText()).arg(filterEdit4->text());
+        QString query=QString(" %1 = \'%2\'").arg(data->filterCombo4->currentText()).arg(data->filterEdit4->text());
         qDebug()<<query<<endl;
         my_database_model4->setFilter(query);
     }else
@@ -422,7 +422,7 @@ void EditTablesPage::handle_section_clicked3(int i)
     if (my_database_model3->header_checked[i]==true)
     {
 
-        QString query=QString(" %1 = \'%2\'").arg(filterCombo4->currentText()).arg(my_database_model3->data(my_database_model3->index(i,0)).toInt());
+        QString query=QString(" %1 = \'%2\'").arg(data->filterCombo4->currentText()).arg(my_database_model3->data(my_database_model3->index(i,0)).toInt());
         qDebug()<<query<<endl;
         my_database_model4->setFilter(query);
     }else
@@ -907,14 +907,14 @@ void EditTablesPage::change_table1(const QString name)
 {
 
     my_database_model1->setTable(name);
-    filterEdit1->setText(QString(""));
+    data->filterEdit1->setText(QString(""));
     filter1();
-    filterCombo1->clear();
+    data->filterCombo1->clear();
 
     qDebug()<<"col count "<<my_database_model1->columnCount()<<endl;
 
     for (int i=0;i<my_database_model1->columnCount();i++)
-        filterCombo1->addItem(my_database_model1->headerData(i, Qt::Horizontal).toString());
+        data->filterCombo1->addItem(my_database_model1->headerData(i, Qt::Horizontal).toString());
 
 
 }
@@ -922,14 +922,14 @@ void EditTablesPage::change_table2(const QString name)
 {
 
     my_database_model2->setTable(name);
-    filterEdit2->setText(QString(""));
+    data->filterEdit2->setText(QString(""));
     filter2();
-    filterCombo2->clear();
+    data->filterCombo2->clear();
 
     qDebug()<<"col count "<<my_database_model2->columnCount()<<endl;
 
     for (int i=0;i<my_database_model2->columnCount();i++)
-        filterCombo2->addItem(my_database_model2->headerData(i, Qt::Horizontal).toString());
+        data->filterCombo2->addItem(my_database_model2->headerData(i, Qt::Horizontal).toString());
 
 
 }
@@ -937,14 +937,14 @@ void EditTablesPage::change_table3(const QString name)
 {
 
     my_database_model3->setTable(name);
-    filterEdit3->setText(QString(""));
+    data->filterEdit3->setText(QString(""));
     filter3();
-    filterCombo3->clear();
+    data->filterCombo3->clear();
 
     qDebug()<<"col count "<<my_database_model3->columnCount()<<endl;
 
     for (int i=0;i<my_database_model3->columnCount();i++)
-        filterCombo3->addItem(my_database_model3->headerData(i, Qt::Horizontal).toString());
+        data->filterCombo3->addItem(my_database_model3->headerData(i, Qt::Horizontal).toString());
 
 
 }
@@ -952,14 +952,14 @@ void EditTablesPage::change_table4(const QString name)
 {
 
     my_database_model4->setTable(name);
-    filterEdit4->setText(QString(""));
+    data->filterEdit4->setText(QString(""));
     filter4();
-    filterCombo4->clear();
+    data->filterCombo4->clear();
 
     qDebug()<<"col count "<<my_database_model4->columnCount()<<endl;
 
     for (int i=0;i<my_database_model4->columnCount();i++)
-        filterCombo4->addItem(my_database_model4->headerData(i, Qt::Horizontal).toString());
+        data->filterCombo4->addItem(my_database_model4->headerData(i, Qt::Horizontal).toString());
 
 
 }
