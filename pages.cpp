@@ -380,10 +380,17 @@ EditTablesPage::EditTablesPage(QWidget *parent,commonData *d)
         return ;
     }
     QTabWidget*  tabEdit= new QTabWidget;
-    QWidget * tab1=new QWidget;
-    QWidget * tab2=new QWidget;
-    tabEdit->addTab(tab1, tr("Form types and answers"));
-    tabEdit->addTab(tab2, tr("Locations and areas"));
+data->tableStack = new QStackedWidget;
+    QWidget *tab1=new QWidget;
+      //QWidget *lol=new QWidget;
+    QWidget *tab2=new QWidget;
+
+
+    data->tableStack->addWidget(tab1);
+    data->tableStack->addWidget(tab2);
+
+  // tabEdit->addTab(tab1, tr("Form types and answers"));
+    //tabEdit->addTab(tab2, tr("Locations and areas"));
 
 
     my_database_model1=new mySqlTableModel(this,data->db);
@@ -397,7 +404,7 @@ EditTablesPage::EditTablesPage(QWidget *parent,commonData *d)
 
     connect(my_database_model1, SIGNAL( dataChanged ( const QModelIndex &, const QModelIndex &) ), this, SLOT(update_data( const QModelIndex &, const QModelIndex &)));
     connect(my_database_model2, SIGNAL( dataChanged ( const QModelIndex &, const QModelIndex &) ), this, SLOT(update_data( const QModelIndex &, const QModelIndex &)));
-    connect(tabEdit, SIGNAL( currentChanged(int)) , this, SLOT(update_button( int)));
+   // connect(tabEdit, SIGNAL( currentChanged(int)) , this, SLOT(update_button( int)));
 
     tableView1=new QTableView(this);
     tableView1->setModel(my_database_model1);
@@ -629,7 +636,7 @@ EditTablesPage::EditTablesPage(QWidget *parent,commonData *d)
     configLayout2->addWidget(tableView3, 1, 0,1,1);
     configLayout2->addWidget(tableView4, 1, 1,1,1);
 
-    tab2->setLayout(configLayout2);
+   tab2->setLayout(configLayout2);
 
     tableView1->show();
     tableView2->show();
@@ -638,8 +645,9 @@ EditTablesPage::EditTablesPage(QWidget *parent,commonData *d)
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     // mainLayout->addWidget(tableCombo);
-    mainLayout->addWidget(tabEdit);
-    mainLayout->addWidget(data->tablesGroup);
+    //mainLayout->addWidget(tabEdit);
+    mainLayout->addWidget(data->tableStack);
+    //mainLayout->addWidget(data->tablesGroup);
     //  mainLayout->addStretch(1);
     setLayout(mainLayout);
 

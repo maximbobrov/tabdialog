@@ -10,6 +10,7 @@ class myCoolButton : public QPushButton
 public:
        myCoolButton(const QString &text, QWidget *parent = Q_NULLPTR);
        void activate();
+       void activate1();
        void deactivate();
 
 };

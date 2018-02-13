@@ -16,6 +16,7 @@
 #include <QTextEdit>
 #include <QCheckBox>
 #include "mycoolbutton.h"
+#include <QStackedWidget>
 
 struct FORM
 {
@@ -131,9 +132,15 @@ public:
     QLabel *tableLabel2;// = new QLabel(tr("Query:"));
     QLabel *tableLabel3;
     QLabel *tableLabel4;
+    myCoolButton *tab1;
+    myCoolButton *tab2;
 
+
+    QStackedWidget *tableStack;
     myCoolButton *filterButton1;// = new myCoolButton(tr("Filter"));
     myCoolButton *addButton1;
+    myCoolButton *genf;
+    myCoolButton *printforms;
     bool status;
     myCoolButton *editButton1;// = new myCoolButton(tr("Insert Empty Row"));
     myCoolButton *remButton1;

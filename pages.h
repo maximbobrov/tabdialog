@@ -10,6 +10,7 @@
 #include <QComboBox>
 #include <QLineEdit>
 #include <QTranslator>
+#include <QStackedWidget>
 #include <QGroupBox>
 #include "QRCodeGenerator.h"
 #include "commondata.h"
@@ -17,6 +18,16 @@
 #include "dialog.h"
 #include "dialog1.h"
 #include "dialog2.h"
+
+QT_BEGIN_NAMESPACE
+class QDialogButtonBox;
+class QFileInfo;
+class QTabWidget;
+class QListWidget;
+class QListWidgetItem;
+class QStackedWidget;
+QT_END_NAMESPACE
+
 class GenerateFormsPage : public QWidget
 {
     Q_OBJECT
@@ -74,6 +85,7 @@ public:
     Dialog1 *ui1;
     Dialog2 *ui2;
 
+
     EditTablesPage(QWidget *parent = 0,commonData *d=0);
 public slots:
     void update_button(int a);
@@ -126,6 +138,7 @@ public slots:
     void update_data ( const QModelIndex &, const QModelIndex &);
 
 private:
+
     mySqlTableModel *my_database_model1;
     mySqlTableModel *my_database_model2;
     mySqlTableModel *my_database_model3;

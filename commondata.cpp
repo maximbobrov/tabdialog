@@ -90,7 +90,7 @@ QString commonData::scypher(QString text)
         sprintf(acc_hex + strlen(acc_hex),"%02x",acc_buff[i]);
     }
     sizeText=strlen(acc_hex);
-    printf("AAAAAAAAAAAAAAAA %s %d \n",acc_hex,sizeText);
+    //printf("AAAAAAAAAAAAAAAA %s %d \n",acc_hex,sizeText);
     QString out=to_base64(acc_buff,acc_buff_size);
 
     return out;
@@ -234,7 +234,7 @@ void commonData::updateQRImage(QString text, int scypher, int index,int invert)
             sprintf(acc_hex + strlen(acc_hex),"%02x",acc_buff[i]);
         }
         sizeText=strlen(acc_hex);
-        printf("AAAAAAAAAAAAAAAA %s %d \n",acc_hex,sizeText);
+        //printf("AAAAAAAAAAAAAAAA %s %d \n",acc_hex,sizeText);
         QString out=to_base64(acc_buff,acc_buff_size);
         qDebug()<<sizeText<<" "<<acc_buff_size<<" "<<out.size()<<" contains: "<<out<<endl;
         buf2=(char*)(acc_hex);

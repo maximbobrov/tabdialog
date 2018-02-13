@@ -35,11 +35,21 @@ class SettingsTab : public QWidget
     Q_OBJECT
 
 public:
+
     GenerateFormsPage * genpage ;
    EditTablesPage * tablepage;
     commonData * cData;
     myCoolButton *edittab;
     myCoolButton *genf;
+    myCoolButton *file;
+     myCoolButton *loadForm;
+      myCoolButton *formList;
+      myCoolButton *genReports;
+      myCoolButton *Logs;
+      myCoolButton *ActLog;
+        myCoolButton *AudLog;
+          myCoolButton *Settings;
+
    /* QPushButton *tab1;
     QPushButton *edit1;
     QPushButton *rem1;
@@ -52,11 +62,17 @@ public:
        QPushButton *add_loc2;*/
     SettingsTab(QWidget *parent = 0, commonData * Data=0);
 public slots:
+    void setInvisible();
+    void setInvisible1();
     void changePage(QListWidgetItem *current, QListWidgetItem *previous);
       void changePage1();
       void changePage2();
       void changeTab1();
         void changeTab2();
+        void file_set();
+        void genReports_set();
+                  void Logs_set();
+            void Settings_set();
 
 private:
     void createIcons();
@@ -73,6 +89,7 @@ class TabDialog : public QMainWindow
 public:
      commonData * cData;
     explicit TabDialog(QWidget *parent = 0);
+
     ~TabDialog();
 private:
     void createActions();
