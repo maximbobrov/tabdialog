@@ -1,3 +1,6 @@
+
+
+
 QPushButton {
     color: #eff0f1;
     background-color: #663699;
@@ -14,11 +17,14 @@ QPushButton {
 }
 
 
+
+
 QPushButton:pressed {
     background-color: #3daee9;
     padding-top: -15px;
     padding-bottom: -17px;
 }
+
 
 
 
@@ -43,3 +49,58 @@ QPushButton#addButton {
     background-color: #997799;
 }
 
+QWidget#left_navbar{ background-color:  rgb(128,128,168)}
+
+QWidget#top_small_navbar{ background-color:  rgb(128,128,168);
+                     margin: -5px -5px -5px -5px;}
+QWidget#top_large_navbar{ background-color:  rgb(128,128,168)}
+QWidget#the_central_widget{ background-color:  rgb(80,80,90)}
+
+
+
+QTableView{
+gridline-color : white;
+
+}
+
+QTableView::item{
+
+    border-bottom : 1px solid black;
+    text-align :right;
+}
+
+QHeaderView {
+    background-color: white;
+    font:bold;
+    font-size: 12px;
+    font-family: "Arial";
+}
+QHeaderView::section {
+    background-color: gray;
+    font:bold;
+    font-size: 12px;
+    font-family: "Arial";
+}
+QHeaderView::section:vertical {
+    color: #fff;
+    border-style: solid;
+    background-color:  gray;
+ }
+
+
+QHeaderView::section:horizontal {
+    color: #fff;
+    border-style: solid;
+    background-color: gray;
+ }
+QTableView {
+    border: 2px solid #3873d9;
+    border-top-color: #4287ff;
+    border-radius: 4px;
+    background-color: white;
+    background-image: url(:/img/other/background.png);
+    gridline-color: #777;
+    selection-background-color: #ccdfff;
+    color:#333;
+    font-size:12px;
+ }
