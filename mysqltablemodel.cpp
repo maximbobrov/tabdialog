@@ -30,7 +30,7 @@ QVariant mySqlTableModel::headerData(int index, Qt::Orientation o, int role) con
     if(Qt::Vertical != o)
         return QSqlTableModel::headerData(index, o, role);
 
-      switch(role)
+   /*   switch(role)
       {
         case Qt::DecorationRole:
         {
@@ -45,7 +45,7 @@ QVariant mySqlTableModel::headerData(int index, Qt::Orientation o, int role) con
          }
          break;
       //...
-      }
+      }*/
 
       return QSqlTableModel::headerData(index, o, role);
 }

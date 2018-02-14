@@ -56,6 +56,7 @@ GenerateFormsPage::GenerateFormsPage(QWidget *parent, commonData *d)
 
     QGridLayout *packagesLayout = new QGridLayout;
 
+    packagesLayout->setContentsMargins( data->marg, data->marg, data->marg, data->marg );
     // packagesLayout->set;
     packagesLayout->addWidget(data->nameLabel, 0, 0,1,1);
     packagesLayout->addWidget(data->nameEdit, 0, 1,1,1);
@@ -127,6 +128,7 @@ GenerateFormsPage::GenerateFormsPage(QWidget *parent, commonData *d)
     QGroupBox *previewParametersGroup = new QGroupBox(tr("Preview"));
 
     QHBoxLayout *previewLayout = new QHBoxLayout;
+previewLayout->setContentsMargins( data->marg, data->marg, data->marg, data->marg );
 
     QTabWidget *tabWidget = new QTabWidget(this);
 
@@ -139,6 +141,7 @@ GenerateFormsPage::GenerateFormsPage(QWidget *parent, commonData *d)
 
     ///////////////////
     QGridLayout *prevTab1layout = new QGridLayout;
+    prevTab1layout->setContentsMargins( data->marg, data->marg, data->marg, data->marg );
     //myCoolButton *updateButton = new myCoolButton(tr("Update"));
     QLabel* labelLoc=new QLabel("Location number:");
     QLabel* labelForm=new QLabel("Form Type:");
@@ -190,6 +193,7 @@ GenerateFormsPage::GenerateFormsPage(QWidget *parent, commonData *d)
     tab1->setLayout(prevTab1layout);
     //////////////////////////////
     QGridLayout *prevTab2layout = new QGridLayout;
+    prevTab2layout->setContentsMargins( data->marg, data->marg, data->marg, data->marg );
     myCoolButton *update2Button = new myCoolButton(tr("Update"));
 
     myCoolButton *prevButton = new myCoolButton(tr("<<"));
@@ -249,6 +253,7 @@ GenerateFormsPage::GenerateFormsPage(QWidget *parent, commonData *d)
 
 
     QGridLayout *mainLayout = new QGridLayout;
+    mainLayout->setContentsMargins( data->marg, data->marg, data->marg, data->marg );
     mainLayout->addWidget(data->formParametersGroup,0,0);
     mainLayout->addWidget(previewParametersGroup,0,1);
 
@@ -408,6 +413,10 @@ data->tableStack = new QStackedWidget;
     tableView1=new QTableView(this);
     tableView1->setModel(my_database_model1);
 
+    //tableView1->setShowGrid(false);
+
+    //tableView1->setCornerButtonEnabled(false);
+
     tableView1->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     tableView2=new QTableView(this);
     tableView2->setModel(my_database_model2);
@@ -558,7 +567,10 @@ data->tableStack = new QStackedWidget;
     connect(data->checkallButton4, SIGNAL(clicked()), my_database_model4, SLOT(check_headers()));
     connect(data->uncheckallButton4, SIGNAL(clicked()), my_database_model4, SLOT(uncheck_headers()));
 
+
     QGridLayout *langLayout1 = new QGridLayout;
+
+     langLayout1->setContentsMargins( data->marg, data->marg, data->marg, data->marg );
     /*langLayout1->addWidget(data->tableLabel1,0,0);
     langLayout1->addWidget(filterCombo1,0,1);
     langLayout1->addWidget(filterEdit1,0,2);
@@ -588,6 +600,7 @@ data->tableStack = new QStackedWidget;
     langLayout2->addStretch(1);*/
 
     QGridLayout *langLayout3 = new QGridLayout;
+    langLayout3->setContentsMargins( data->marg, data->marg, data->marg, data->marg );
     /*langLayout3->addWidget(data->tableLabel3,0,0);
 
     langLayout3->addWidget(filterCombo3,0,1);
@@ -604,6 +617,7 @@ data->tableStack = new QStackedWidget;
    // langLayout3->addStretch(1);
 
     QGridLayout *langLayout4 = new QGridLayout;
+    langLayout4->setContentsMargins( data->marg, data->marg, data->marg, data->marg );
     /*langLayout4->addWidget(data->tableLabel4,0,0);
 
     langLayout4->addWidget(filterCombo4,0,1);
@@ -620,6 +634,7 @@ data->tableStack = new QStackedWidget;
     //langLayout4->addStretch(1);
 
     QGridLayout *configLayout1 = new QGridLayout;
+    configLayout1->setContentsMargins( data->marg, data->marg, data->marg, data->marg );
     configLayout1->addLayout(langLayout1, 0, 0);
     //configLayout1->addLayout(langLayout2, 0, 1);
     // packagesLayout->addWidget(nameEdit, 0, 1);
@@ -629,6 +644,7 @@ data->tableStack = new QStackedWidget;
     tab1->setLayout(configLayout1);
 
     QGridLayout *configLayout2 = new QGridLayout;
+    configLayout2->setContentsMargins( data->marg, data->marg, data->marg, data->marg );
      configLayout2->addLayout(langLayout3, 0, 0);
      configLayout2->addLayout(langLayout4, 0, 1);
     // packagesLayout->addWidget(nameEdit, 0, 1);
@@ -643,6 +659,7 @@ data->tableStack = new QStackedWidget;
     tableView4->show();
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->setContentsMargins( data->marg, data->marg, data->marg, data->marg );
     // mainLayout->addWidget(tableCombo);
     //mainLayout->addWidget(tabEdit);
     mainLayout->addWidget(data->tableStack);

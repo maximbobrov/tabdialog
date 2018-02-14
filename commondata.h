@@ -31,6 +31,7 @@ class commonData : public QObject
 {
     Q_OBJECT
 public:
+
     explicit commonData(QObject *parent = 0);
     void updateQRImage(QString text, int scypher, int index,int invert);
     QString scypher(QString text);
@@ -53,6 +54,7 @@ public:
     int selected_row2;
     int selected_row3;
     int selected_row4;
+    int marg;
 
     QComboBox *filterCombo1;
     QComboBox *filterCombo2;

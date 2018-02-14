@@ -92,20 +92,27 @@ TabDialog::TabDialog(QWidget *parent)
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));*/
     QWidget *widget=new QWidget;
+    widget->setObjectName("the_central_widget");
     QWidget *widgetup=new QWidget;
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     QVBoxLayout *verticalLayout = new QVBoxLayout;
     QHBoxLayout *horizontalLayout = new QHBoxLayout;
+
+    mainLayout->setContentsMargins( cData->marg, cData->marg, cData->marg, cData->marg );
+    verticalLayout->setContentsMargins( cData->marg, cData->marg, cData->marg, cData->marg );
+    horizontalLayout->setContentsMargins( cData->marg, cData->marg, cData->marg, cData->marg );
+
     myCoolButton *primaryLoc=new myCoolButton("Primary location");primaryLoc->setObjectName("editButton");
     myCoolButton *exit=new myCoolButton("Exit");exit->setObjectName("editButton");
 
     //widgetup->setMaximumHeight(30);
-    widgetup->setStyleSheet("background-color: turquoise");
+    widgetup->setObjectName("top_large_navbar");
     widgetup->setLayout(horizontalLayout);
     widgetup->setMaximumHeight(50);
     horizontalLayout->SetMinimumSize;
     horizontalLayout->addWidget(primaryLoc);
+    horizontalLayout->addStretch(20);
     // horizontalLayout->addWidget(cData->langCombo);
 
     horizontalLayout->addWidget(exit);
@@ -168,7 +175,7 @@ void TabDialog::createActions()
 
 void TabDialog::createMenus()
 {
-    fileMenu = menuBar()->addMenu(tr("&File"));
+   /* fileMenu = menuBar()->addMenu(tr("&File"));
     fileMenu->addAction(newAct);
     fileMenu->addAction(openAct);
     fileMenu->addAction(saveAct);
@@ -178,7 +185,7 @@ void TabDialog::createMenus()
 
     helpMenu = menuBar()->addMenu(tr("&Help"));
     //helpMenu->addAction(aboutAct);
-    //helpMenu->addAction(aboutQtAct);
+    //helpMenu->addAction(aboutQtAct);*/
 
 
     // myCoolButton* button= new myCoolButton(this);
@@ -238,6 +245,8 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
     // commonData* Data=new commonData(this);
 
     pagesWidget = new QStackedWidget;
+
+    pagesWidget->setObjectName("pages_widget");
     genpage =new GenerateFormsPage(this,cData);
     tablepage= new EditTablesPage(this,cData);
 
@@ -308,7 +317,15 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
 
     QVBoxLayout *verticalLayout = new QVBoxLayout;
     QHBoxLayout *horizontalLayout = new QHBoxLayout;
+
+
+    gridLayout->setContentsMargins( cData->marg, cData->marg, cData->marg, cData->marg );
+    verticalLayout->setContentsMargins( cData->marg, cData->marg, cData->marg, cData->marg );
+    horizontalLayout->setContentsMargins( 0, 0, 0, 0 );
+pagesWidget->setContentsMargins( 0, 0, 0, 0 );
     QWidget * widUp= new QWidget;
+
+    QWidget * left_navbar= new QWidget(this);
     //verticalLayout->addWidget(contentsWidget);
     verticalLayout->addWidget(file);
     verticalLayout->addWidget(loadForm);
@@ -335,6 +352,11 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
     verticalLayout->addWidget(cData->rem_area2);
     verticalLayout->addWidget(cData->rem_loc2);*/
     verticalLayout->addWidget(genf);
+
+
+    left_navbar->setLayout(verticalLayout);
+left_navbar->setObjectName("left_navbar");
+
     horizontalLayout->addWidget(cData->edit1);
     horizontalLayout->addWidget(cData->add1);
     horizontalLayout->addWidget(cData->rem1);
@@ -352,7 +374,7 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
     horizontalLayout->addWidget(cData->filterCombo4);
     horizontalLayout->addWidget(cData->filterEdit4);
     horizontalLayout->addWidget(cData->filterButton4);//data->filterButton1->setObjectName("filterButton");
-
+horizontalLayout->addStretch(20);
     loadForm->setVisible(false);
     formList->setVisible(false);
     ActLog->setVisible(false);
@@ -381,11 +403,17 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
 
     verticalLayout->addStretch();
     widUp->setLayout(horizontalLayout);
-    widUp->setStyleSheet("background-color: lightskyblue");
-    widUp->setMaximumHeight(50);
-    gridLayout->addLayout(verticalLayout,0,0,10,1);
-    gridLayout->addWidget(widUp,0,2,1,50);
-    gridLayout->addWidget(pagesWidget,1,1,10,52);
+    widUp->setObjectName("top_small_navbar");
+   widUp->setMaximumHeight(50);
+   widUp->setMaximumWidth(5000);
+
+    gridLayout->addWidget(left_navbar,0,0,2,1);
+
+    gridLayout->setContentsMargins( cData->marg, cData->marg, cData->marg, cData->marg );
+
+    //gridLayout->setc
+    gridLayout->addWidget(widUp,0,1,1,1);
+    gridLayout->addWidget(pagesWidget,1,1,1,1);
     //gridLayout->setSpacing(1);
 
     //horizontalLayout->addLayout(verticalLayout);

@@ -10,7 +10,7 @@ myCoolButton::myCoolButton(const QString &text, QWidget *parent):QPushButton(tex
 
     this->setGraphicsEffect(effect);
 
-    this->setIcon(QIcon(":/images/blank.png"));
+   // this->setIcon(QIcon(":/images/blank.png"));
 }
 
 void myCoolButton::activate()

@@ -14,7 +14,7 @@ commonData::commonData(QObject *parent) : QObject(parent)
     db_name="database.sqlite";
     open_db();
     percent=0.1;
-
+marg=3;
 
 
 }
