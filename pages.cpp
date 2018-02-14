@@ -418,10 +418,12 @@ data->tableStack = new QStackedWidget;
     //tableView1->setCornerButtonEnabled(false);
 
     tableView1->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    tableView1->verticalHeader()->hide();
     tableView2=new QTableView(this);
     tableView2->setModel(my_database_model2);
 
     tableView2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    tableView2->verticalHeader()->hide();
 
     my_database_model3=new mySqlTableModel(this,data->db);
     my_database_model3->setTable("geographic_area_table");
@@ -437,10 +439,12 @@ data->tableStack = new QStackedWidget;
 
     tableView3=new QTableView(this);
     tableView3->setModel(my_database_model3);
+    tableView3->verticalHeader()->hide();
 
     tableView3->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     tableView4=new QTableView(this);
     tableView4->setModel(my_database_model4);
+    tableView4->verticalHeader()->hide();
 
     tableView4->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     // tableView->setSelectionMode(QAbstractItemView::SingleSelection);

@@ -55,6 +55,7 @@
 #include <QSpacerItem>
 #include  "pages.h"
 #include "commondata.h"
+#include <QGraphicsEffect>
 //! [0]
 //!
 //!
@@ -75,6 +76,7 @@ TabDialog::TabDialog(QWidget *parent)
     cData=new commonData();
 
     cData->langCombo = new QComboBox;
+
     cData->langCombo->addItem(("English"));
     cData->langCombo->addItem(("Russian"));
 
@@ -91,6 +93,41 @@ TabDialog::TabDialog(QWidget *parent)
 
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));*/
+    QGroupBox* langGroup = new QGroupBox(tr(""));
+//langGroup->setStyleSheet(" background-color: #669999;");
+//langGroup->setStyleSheet(" border-color: #669999;");
+//langGroup->setStyleSheet(" color: #669999;");
+    // langGroup->setFlat(true);
+    // langGroup->setStyleSheet( "border: none" );
+
+    langGroup->setContentsMargins(0,0,0,0);
+    QLabel* langLabelpic = new QLabel("");
+    langLabelpic->setPixmap(QPixmap(":/images/lang_verysmall.png"));
+
+    QLabel* langLabel = new QLabel(tr("UI Language:"));
+    langLabel->setStyleSheet("color: #ffffff");
+    QFont font = langLabel->font();
+        font.setBold(true);
+        font.setPointSize(10);
+        langLabel->setFont(font);
+
+//langLabel->setStyleSheet("font:bold");
+//langLabel->setStyleSheet("font-size: 20");
+//langLabel->setStyleSheet("font-family: Arial");
+
+
+
+    QHBoxLayout *langLayout = new QHBoxLayout;
+
+    langLayout->addWidget(langLabelpic);
+    langLayout->addWidget(langLabel);
+    langLayout->addWidget(cData->langCombo);
+
+
+    langLayout->setContentsMargins(0, 0, 0, 0);
+    langGroup->setLayout(langLayout);
+
+    //langGroup->setObjectName("top_large_navbar");
     QWidget *widget=new QWidget;
     widget->setObjectName("the_central_widget");
     QWidget *widgetup=new QWidget;
@@ -114,7 +151,7 @@ TabDialog::TabDialog(QWidget *parent)
     horizontalLayout->addWidget(primaryLoc);
     horizontalLayout->addStretch(20);
     // horizontalLayout->addWidget(cData->langCombo);
-
+    horizontalLayout->addWidget(langGroup);
     horizontalLayout->addWidget(exit);
     //horizontalLayout->addStretch(0);
     widget->setLayout(verticalLayout);
@@ -193,7 +230,7 @@ void TabDialog::createMenus()
     // button->setText("sssss");
 
 
-    QGroupBox* langGroup = new QGroupBox(tr(""));
+   /* QGroupBox* langGroup = new QGroupBox(tr(""));
 
     // langGroup->setFlat(true);
     // langGroup->setStyleSheet( "border: none" );
@@ -215,7 +252,7 @@ void TabDialog::createMenus()
     langGroup->setLayout(langLayout);
 
 
-    menuBar()->setCornerWidget(langGroup);
+    menuBar()->setCornerWidget(langGroup);*/
 
 
 }
@@ -326,6 +363,12 @@ pagesWidget->setContentsMargins( 0, 0, 0, 0 );
     QWidget * widUp= new QWidget;
 
     QWidget * left_navbar= new QWidget(this);
+
+   /* QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
+    effect->setBlurRadius(10); //Adjust accordingly
+    effect->setOffset(0,2); //Adjust accordingly*/
+
+   // this->setGraphicsEffect(effect);
     //verticalLayout->addWidget(contentsWidget);
     verticalLayout->addWidget(file);
     verticalLayout->addWidget(loadForm);
