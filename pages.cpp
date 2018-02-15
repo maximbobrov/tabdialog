@@ -28,7 +28,7 @@ GenerateFormsPage::GenerateFormsPage(QWidget *parent, commonData *d)
     //  QFont font;
     //  font.setBold(true);
 
-    data->formParametersGroup = new QGroupBox(tr("Form Parameters"));
+    data->formParametersGroup = new QGroupBox(tr(""));
     //data->formParametersGroup->setFont(font);
     //   font.setBold(false);
 
@@ -309,7 +309,7 @@ void SetLanguagePage::translate(int index)
     qApp->installTranslator(&qtLanguageTranslator);
 
 
-    data->formParametersGroup->setTitle(tr("Form Parameters"));
+    //data->formParametersGroup->setTitle(tr("Form Parameters"));
 
     data->nameLabel->setText(tr("Label:"));
 
@@ -609,7 +609,7 @@ data->tableStack = new QStackedWidget;
 
     langLayout3->addWidget(filterCombo3,0,1);
     langLayout3->addWidget(filterEdit3,0,2);
-    langLayout3->addWidget(data->filterButton3,0,3); data->filterButton3->setObjectName("filterButton");
+    langLayout3->addWidget(data->filterButton3,0,3); data->filterButton3->setObjectName("top_small_navbar_Button");
     langLayout3->addWidget(data->checkallButton3,0,4);data->checkallButton3->setObjectName("checkButton");
     langLayout3->addWidget(data->uncheckallButton3,0,5);data->uncheckallButton3->setObjectName("uncheckButton");*/
 

@@ -26,7 +26,7 @@ class ValidateTab : public QWidget
     Q_OBJECT
 
 public:
-     commonData * cData;
+    commonData * cData;
     ValidateTab(QWidget *parent = 0,commonData * Data=0);
 };
 
@@ -37,20 +37,20 @@ class SettingsTab : public QWidget
 public:
 
     GenerateFormsPage * genpage ;
-   EditTablesPage * tablepage;
+    EditTablesPage * tablepage;
     commonData * cData;
     myCoolButton *edittab;
     myCoolButton *genf;
     myCoolButton *file;
-     myCoolButton *loadForm;
-      myCoolButton *formList;
-      myCoolButton *genReports;
-      myCoolButton *Logs;
-      myCoolButton *ActLog;
-        myCoolButton *AudLog;
-          myCoolButton *Settings;
+    myCoolButton *loadForm;
+    myCoolButton *formList;
+    myCoolButton *genReports;
+    myCoolButton *Logs;
+    myCoolButton *ActLog;
+    myCoolButton *AudLog;
+    myCoolButton *Settings;
 
-   /* QPushButton *tab1;
+    /* QPushButton *tab1;
     QPushButton *edit1;
     QPushButton *rem1;
     QPushButton *add1;
@@ -65,14 +65,18 @@ public slots:
     void setInvisible();
     void setInvisible1();
     void changePage(QListWidgetItem *current, QListWidgetItem *previous);
-      void changePage1();
-      void changePage2();
-      void changeTab1();
-        void changeTab2();
-        void file_set();
-        void genReports_set();
-                  void Logs_set();
-            void Settings_set();
+    void changePage1();
+    void changePage2();
+    void changeTab1();
+    void changeTab2();
+    void file_set();
+    void loadForm_set();
+    void formList_set();
+    void genReports_set();
+    void Logs_set();
+    void ActLog_set();
+    void AudLog_set();
+    void Settings_set();
 
 private:
     void createIcons();
@@ -87,7 +91,7 @@ class TabDialog : public QMainWindow
     Q_OBJECT
 
 public:
-     commonData * cData;
+    commonData * cData;
     explicit TabDialog(QWidget *parent = 0);
 
     ~TabDialog();

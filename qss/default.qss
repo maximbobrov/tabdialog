@@ -2,10 +2,10 @@
 
 
 QPushButton {
-    color: #eff0f1;
-    background-color: #663699;
+    color: #666666;
+    background-color: #ffffff;
     border-width: 0px;
-    border-color: #76797C;
+    border-color: #888888;
     border-style: solid;
     padding: 10px;
     border-radius: 3px;
@@ -20,7 +20,7 @@ QPushButton {
 
 
 QPushButton:pressed {
-    background-color: #3daee9;
+    background-color: #ffffff;
     padding-top: -15px;
     padding-bottom: -17px;
 }
@@ -46,14 +46,42 @@ QPushButton#remButton {
     background-color: #777777;
 }
 QPushButton#addButton {
-    background-color: #997799;
+    background-color: #ffffff;
+    color: #666666;
+    border: 2px solid #ffffff;
+    border-top-color: #666666;
+     border-width: 3px;
+
+    border-radius: 4px;
+}
+QPushButton#menuButton {
+    background-color: #white ;
+    border: 2px solid #666666;
+    border-top-color: #666666;
+    border-radius: 4px;
+     border-width: 0px;
+}
+QPushButton#menu1Button {
+    background-color: #white ;
+    border: 2px solid #666666;
+    border-top-color: #666666;
+    border-radius: 4px;
+     border-width: 0px;
+}
+QPushButton#top_small_navbar_Button {
+    background-color:  lightblue
+}
+QPushButton#top_large_navbar_Button {
+    background-color:  palegreen
+
 }
 
-QWidget#left_navbar{ background-color:  rgb(200,200,200); border-radius: 3px;}
 
-QWidget#top_small_navbar{ background-color:  rgb(200,200,200);
+QWidget#left_navbar{ background-color:   rgb(255,255,255); border-radius: 3px;}
+
+QWidget#top_small_navbar{ background-color:  powderblue;
                       border-radius: 3px;}
-QWidget#top_large_navbar{ background-color:  rgb(150,150,150); border-radius: 3px;}
+QWidget#top_large_navbar{ background-color:  lightgreen; border-radius: 3px;}
 QWidget#the_central_widget{ background-color:  rgb(255,255,255); border-radius: 3px;}
 
 
@@ -70,10 +98,10 @@ QTableView::item{
 }
 QGroupBox
 {
-color: #669999;
- border: 2px solid #669999;
-background-color: #669999;
-border-color:#669999;
+color: #lightgreen;
+ border: 2px solid lightgreen;
+background-color: lightgreen;
+border-color: lightgreen;
 font:bold;
 font-size: 12px;
 font-family: "Arial";
@@ -102,7 +130,7 @@ QHeaderView::section:vertical {
 QHeaderView::section:horizontal {
     color: #fff;
     border-style: solid;
-    background-color: gray;
+    background-color: #888888;
  }
 QTableView {
     border: 2px solid #ffffff;

@@ -148,7 +148,7 @@ public:
     QStackedWidget *tableStack;
     myCoolButton *filterButton1;// = new myCoolButton(tr("Filter"));
     myCoolButton *addButton1;
-    myCoolButton *genf;
+    myCoolButton *genff;
     myCoolButton *printforms;
     bool status;
     myCoolButton *editButton1;// = new myCoolButton(tr("Insert Empty Row"));
