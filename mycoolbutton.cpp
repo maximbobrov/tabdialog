@@ -18,7 +18,7 @@ void myCoolButton::activate()
 
   QString style =  QString("QPushButton { \
             color: #222222;\
-            background-color: #ffffff;\
+            background-color: #a5fdf4;\
             border-width: 3px;\
             border-color: white;\
             border-style: solid;\
@@ -26,7 +26,7 @@ void myCoolButton::activate()
             border-radius: 10px;\
             outline: none;\
            font:bold;\
-           font-size: 12px;\
+           font-size: 14px;\
            font-family: \"Arial\";\
            text-align:left;\
         }");
@@ -45,13 +45,13 @@ void myCoolButton::activate1()
               color: #666666;\
               background-color: #ffffff;\
               border-width: 3px;\
-              border-color: mediumspringgreen;\
+              border-color: aquamarine;\
               border-style: solid;\
               padding: 10px;\
               border-radius: 10px;\
               outline: none;\
              font:bold;\
-             font-size: 12px;\
+             font-size: 14px;\
              font-family: \"Arial\";\
              text-align:left;\
           }");
@@ -70,13 +70,13 @@ void myCoolButton::activate2()
               color: #666666;\
               background-color: #ffffff;\
               border-width: 3px;\
-              border-color: aquamarine;\
+              border-color: mediumspringgreen ;\
               border-style: solid;\
               padding: 10px;\
               border-radius: 10px;\
               outline: none;\
              font:bold;\
-             font-size: 12px;\
+             font-size: 14px;\
              font-family: \"Arial\";\
              text-align:left;\
           }");
@@ -103,7 +103,7 @@ void myCoolButton::deactivate()
               border-radius: 3px;\
               outline: none;\
              font:bold;\
-             font-size: 12px;\
+             font-size: 14px;\
              font-family: \"Arial\";\
              text-align:left;\
           }");

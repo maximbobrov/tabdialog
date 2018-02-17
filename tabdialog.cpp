@@ -95,9 +95,9 @@ TabDialog::TabDialog(QWidget *parent)
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));*/
     QGroupBox* langGroup = new QGroupBox(tr(""));
-//langGroup->setStyleSheet(" background-color: #669999;");
-//langGroup->setStyleSheet(" border-color: #669999;");
-//langGroup->setStyleSheet(" color: #669999;");
+    //langGroup->setStyleSheet(" background-color: #669999;");
+    //langGroup->setStyleSheet(" border-color: #669999;");
+    //langGroup->setStyleSheet(" color: #669999;");
     // langGroup->setFlat(true);
     // langGroup->setStyleSheet( "border: none" );
 
@@ -108,13 +108,13 @@ TabDialog::TabDialog(QWidget *parent)
     QLabel* langLabel = new QLabel(tr("UI Language:"));
     langLabel->setStyleSheet("color: #666666");
     QFont font = langLabel->font();
-        font.setBold(true);
-        font.setPointSize(10);
-        langLabel->setFont(font);
+    font.setBold(true);
+    font.setPointSize(10);
+    langLabel->setFont(font);
 
-//langLabel->setStyleSheet("font:bold");
-//langLabel->setStyleSheet("font-size: 20");
-//langLabel->setStyleSheet("font-family: Arial");
+    //langLabel->setStyleSheet("font:bold");
+    //langLabel->setStyleSheet("font-size: 20");
+    //langLabel->setStyleSheet("font-family: Arial");
 
 
 
@@ -141,8 +141,8 @@ TabDialog::TabDialog(QWidget *parent)
     verticalLayout->setContentsMargins( cData->marg, cData->marg, cData->marg, cData->marg );
     horizontalLayout->setContentsMargins( cData->marg, cData->marg, cData->marg, cData->marg );
 
-    myCoolButton *primaryLoc=new myCoolButton("Primary location");primaryLoc->setObjectName("top_large_navbar_Button");
-    myCoolButton *exit=new myCoolButton("Exit");exit->setObjectName("top_large_navbar_Button");
+    myCoolButton *primaryLoc=new myCoolButton("Primary location");primaryLoc->setObjectName("addnew_Button");
+    myCoolButton *exit=new myCoolButton("Exit");exit->setObjectName("exitnew_Button");exit->setFixedWidth(100);
     connect(exit, SIGNAL(clicked(bool)), qApp, SLOT(quit()));
 
     //widgetup->setMaximumHeight(30);
@@ -214,7 +214,7 @@ void TabDialog::createActions()
 
 void TabDialog::createMenus()
 {
-   /* fileMenu = menuBar()->addMenu(tr("&File"));
+    /* fileMenu = menuBar()->addMenu(tr("&File"));
     fileMenu->addAction(newAct);
     fileMenu->addAction(openAct);
     fileMenu->addAction(saveAct);
@@ -232,7 +232,7 @@ void TabDialog::createMenus()
     // button->setText("sssss");
 
 
-   /* QGroupBox* langGroup = new QGroupBox(tr(""));
+    /* QGroupBox* langGroup = new QGroupBox(tr(""));
 
     // langGroup->setFlat(true);
     // langGroup->setStyleSheet( "border: none" );
@@ -296,7 +296,7 @@ SettingsTab::SettingsTab(QWidget *parent,commonData *Data)
     pagesWidget->addWidget(empty);
     pagesWidget->setStyleSheet("background-color: #ffffff");
     genpage->setStyleSheet("background-color: #ffffff;border-color: grey;    border-width: 1px; border-style: solid; border-radius: 3px;");
-tablepage->setStyleSheet("background-color: #ffffff");
+    tablepage->setStyleSheet("background-color: #ffffff");
     genpage->update_view_sing();
 
 
@@ -345,24 +345,24 @@ tablepage->setStyleSheet("background-color: #ffffff");
 
     cData->tab1= new myCoolButton("—  Form type and answer");cData->tab1->setObjectName("menuButton");
 
-    cData->edit1= new myCoolButton("Edit"); cData->edit1->setObjectName("top_small_navbar_Button");
+    cData->edit1= new myCoolButton("Edit"); cData->edit1->setObjectName("editnew_Button");cData->edit1->setFixedWidth(150);
     cData->tab1->setFixedWidth(180);
-    cData->add1= new myCoolButton("Add new"); cData->add1->setObjectName("top_small_navbar_Button");
-    cData->rem1= new myCoolButton("Remove"); cData->rem1->setObjectName("top_small_navbar_Button");
+    cData->add1= new myCoolButton("Add new"); cData->add1->setObjectName("addnew_Button");cData->add1->setFixedWidth(150);
+    cData->rem1= new myCoolButton("Remove"); cData->rem1->setObjectName("removenew_Button");cData->rem1->setFixedWidth(150);
     cData->tab2= new myCoolButton("—  Location and area"); cData->tab2->setObjectName("menuButton");
     cData->tab2->setFixedWidth(180);
-    cData->edit2= new myCoolButton("Edit"); cData->edit2->setObjectName("top_small_navbar_Button");
-    cData->rem_area2= new myCoolButton("Eemove area"); cData->rem_area2->setObjectName("top_small_navbar_Button");
-    cData->rem_loc2= new myCoolButton("Remove location"); cData->rem_loc2->setObjectName("top_small_navbar_Button");
-    cData->add_area2= new myCoolButton("Add new area"); cData->add_area2->setObjectName("top_small_navbar_Button");
-    cData->add_loc2= new myCoolButton("Add new location"); cData->add_loc2->setObjectName("top_small_navbar_Button");
+    cData->edit2= new myCoolButton("Edit"); cData->edit2->setObjectName("editnew_Button");cData->edit2->setFixedWidth(150);
+    cData->rem_area2= new myCoolButton("Remove area"); cData->rem_area2->setObjectName("removenew_Button");cData->rem_area2->setFixedWidth(150);
+    cData->rem_loc2= new myCoolButton("Remove location"); cData->rem_loc2->setObjectName("removenew_Button");cData->rem_loc2->setFixedWidth(150);
+    cData->add_area2= new myCoolButton("Add new area"); cData->add_area2->setObjectName("addnew_Button");cData->add_area2->setFixedWidth(150);
+    cData->add_loc2= new myCoolButton("Add new location"); cData->add_loc2->setObjectName("addnew_Button");cData->add_loc2->setFixedWidth(150);
 
-    cData->genff= new myCoolButton("Generate form"); cData->edit1->setObjectName("top_small_navbar_Button");
-    cData->printforms= new myCoolButton("Print form"); cData->add1->setObjectName("top_small_navbar_Button");
-     cData->filterButton1->setObjectName("top_small_navbar_Button");
-      cData->filterButton4->setObjectName("top_small_navbar_Button");
+    cData->genff= new myCoolButton("Generate form"); cData->genff->setObjectName("addnew_Button");cData->genff->setFixedWidth(150);
+    cData->printforms= new myCoolButton("Print form"); cData->printforms->setObjectName("editnew_Button");cData->printforms->setFixedWidth(150);
+    cData->filterButton1->setObjectName("filternew_Button");
+    cData->filterButton4->setObjectName("filternew_Button");
 
- pagesWidget->setCurrentIndex(2);
+    pagesWidget->setCurrentIndex(2);
     QGridLayout *gridLayout = new QGridLayout;
 
     QVBoxLayout *verticalLayout = new QVBoxLayout;
@@ -372,16 +372,16 @@ tablepage->setStyleSheet("background-color: #ffffff");
     gridLayout->setContentsMargins( cData->marg, cData->marg, cData->marg, cData->marg );
     verticalLayout->setContentsMargins( cData->marg, cData->marg, cData->marg, cData->marg );
     horizontalLayout->setContentsMargins( 10, 10, 10, 10 );
-pagesWidget->setContentsMargins( 0, 0, 0, 0 );
+    pagesWidget->setContentsMargins( 0, 0, 0, 0 );
     QWidget * widUp= new QWidget;
 
     QWidget * left_navbar= new QWidget(this);
 
-   /* QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
+    /* QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
     effect->setBlurRadius(10); //Adjust accordingly
     effect->setOffset(0,2); //Adjust accordingly*/
 
-   // this->setGraphicsEffect(effect);
+    // this->setGraphicsEffect(effect);
     //verticalLayout->addWidget(contentsWidget);
     verticalLayout->addWidget(file);
     verticalLayout->addWidget(loadForm);
@@ -396,7 +396,7 @@ pagesWidget->setContentsMargins( 0, 0, 0, 0 );
 
 
 
-verticalLayout->addWidget(genf);
+    verticalLayout->addWidget(genf);
     verticalLayout->addWidget(edittab);
     verticalLayout->addWidget(cData->tab1);
     /* verticalLayout->addWidget(cData->edit1);
@@ -412,14 +412,15 @@ verticalLayout->addWidget(genf);
 
 
     left_navbar->setLayout(verticalLayout);
-left_navbar->setObjectName("left_navbar");
+    left_navbar->setObjectName("left_navbar");
 
-    horizontalLayout->addWidget(cData->edit1);
     horizontalLayout->addWidget(cData->add1);
+    horizontalLayout->addWidget(cData->edit1);
     horizontalLayout->addWidget(cData->rem1);
-    horizontalLayout->addWidget(cData->edit2);
+
     horizontalLayout->addWidget(cData->add_area2);
     horizontalLayout->addWidget(cData->add_loc2);
+    horizontalLayout->addWidget(cData->edit2);
     horizontalLayout->addWidget(cData->rem_area2);
     horizontalLayout->addWidget(cData->rem_loc2);
     horizontalLayout->addWidget(cData->genff);
@@ -431,7 +432,7 @@ left_navbar->setObjectName("left_navbar");
     horizontalLayout->addWidget(cData->filterCombo4);
     horizontalLayout->addWidget(cData->filterEdit4);
     horizontalLayout->addWidget(cData->filterButton4);//data->filterButton1->setObjectName("filterButton");
-horizontalLayout->addStretch(20);
+    horizontalLayout->addStretch(20);
     loadForm->setVisible(false);
     formList->setVisible(false);
     ActLog->setVisible(false);
@@ -461,8 +462,8 @@ horizontalLayout->addStretch(20);
     verticalLayout->addStretch();
     widUp->setLayout(horizontalLayout);
     widUp->setObjectName("top_small_navbar");
-   widUp->setMaximumHeight(50);
-   widUp->setMaximumWidth(5000);
+    widUp->setMaximumHeight(50);
+    widUp->setMaximumWidth(5000);
 
     gridLayout->addWidget(left_navbar,0,0,2,1);
 
@@ -665,8 +666,8 @@ void SettingsTab::changePage2()
     //edittab->setText(tr("Edit Database"));
     //edittab->deactivate();
 
-     edittab->setVisible(true);
-     genf->setVisible(true);
+    edittab->setVisible(true);
+    genf->setVisible(true);
     cData->genff->setVisible(true);
     cData->printforms->setVisible(true);
     cData-> edit1->setVisible(false);
@@ -735,7 +736,7 @@ void SettingsTab::file_set()
 {
     //setInvisible();
 
-pagesWidget->setCurrentIndex(2);
+    pagesWidget->setCurrentIndex(2);
 
     if (loadForm->isVisible()==false)
     {
@@ -763,11 +764,11 @@ void SettingsTab::loadForm_set()
 void SettingsTab::formList_set()
 {
     formList->activate1();
-     loadForm->deactivate();
+    loadForm->deactivate();
 }
 void SettingsTab::genReports_set()
 {
-pagesWidget->setCurrentIndex(2);
+    pagesWidget->setCurrentIndex(2);
     setInvisible();
     genReports->activate();
 
@@ -792,16 +793,16 @@ void SettingsTab::Logs_set()
     }
     Logs->activate();
 }
- void SettingsTab::ActLog_set()
- {
-     ActLog->activate1();
-      AudLog->deactivate();
- }
- void SettingsTab::AudLog_set()
- {
-     AudLog->activate1();
-      ActLog->deactivate();
- }
+void SettingsTab::ActLog_set()
+{
+    ActLog->activate1();
+    AudLog->deactivate();
+}
+void SettingsTab::AudLog_set()
+{
+    AudLog->activate1();
+    ActLog->deactivate();
+}
 void SettingsTab::Settings_set()
 {
     pagesWidget->setCurrentIndex(2);
@@ -869,9 +870,9 @@ void SettingsTab::setInvisible()
     cData->tab1->deactivate();
     cData->tab2->deactivate();
     formList->deactivate();
-     loadForm->deactivate();
-     AudLog->deactivate();
-      ActLog->deactivate();
+    loadForm->deactivate();
+    AudLog->deactivate();
+    ActLog->deactivate();
 
 }
 void SettingsTab::setInvisible1()
